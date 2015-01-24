@@ -1,10 +1,11 @@
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
-Obj/
-UnityGenerated/
-Library/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -19,6 +20,7 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
+*.tmp
 
 # ============ #
 # OS generated #
@@ -31,3 +33,9 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
