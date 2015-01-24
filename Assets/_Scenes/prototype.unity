@@ -552,6 +552,8 @@ MonoBehaviour:
   buttonLit: 0
   childOn: {fileID: 569042550}
   childOff: {fileID: 1379749669}
+  audio: {fileID: 0}
+  sndBeep: {fileID: 0}
 --- !u!65 &126741792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -629,6 +631,8 @@ MonoBehaviour:
   buttonLit: 0
   childOn: {fileID: 354508047}
   childOff: {fileID: 1652345078}
+  audio: {fileID: 0}
+  sndBeep: {fileID: 0}
 --- !u!65 &131114893
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -749,6 +753,8 @@ MonoBehaviour:
   buttonLit: 0
   childOn: {fileID: 156389476}
   childOff: {fileID: 1946607698}
+  audio: {fileID: 0}
+  sndBeep: {fileID: 0}
 --- !u!65 &142230131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -912,6 +918,9 @@ MonoBehaviour:
   NLow: 0
   NHigh: 0
   NInactive: 0
+  audio: {fileID: 0}
+  sndWrong: {fileID: 0}
+  sndRight: {fileID: 0}
 --- !u!1 &156389476
 GameObject:
   m_ObjectHideFlags: 0
@@ -5352,6 +5361,8 @@ MonoBehaviour:
   buttonLit: 0
   childOn: {fileID: 1470898147}
   childOff: {fileID: 406473041}
+  audio: {fileID: 0}
+  sndBeep: {fileID: 0}
 --- !u!65 &479860327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7014,6 +7025,8 @@ MonoBehaviour:
   buttonLit: 0
   childOn: {fileID: 1025094724}
   childOff: {fileID: 955355393}
+  audio: {fileID: 0}
+  sndBeep: {fileID: 0}
 --- !u!65 &613213067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10725,6 +10738,8 @@ MonoBehaviour:
   buttonLit: 0
   childOn: {fileID: 159997575}
   childOff: {fileID: 1307290290}
+  audio: {fileID: 0}
+  sndBeep: {fileID: 0}
 --- !u!65 &829779191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17445,6 +17460,7 @@ GameObject:
   - 4: {fileID: 1250317204}
   - 23: {fileID: 1250317206}
   - 102: {fileID: 1250317205}
+  - 114: {fileID: 1250317207}
   m_Layer: 0
   m_Name: Hint Text
   m_TagString: Untagged
@@ -17459,7 +17475,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1250317203}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 1.17822456, y: -.271698594, z: -0}
+  m_LocalPosition: {x: 1.01747799, y: -.147350013, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2057753813}
@@ -17471,7 +17487,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1250317203}
-  m_Text: Hello World
+  m_Text: -0 +0
   m_OffsetZ: 0
   m_CharacterSize: .00999999978
   m_LineSpacing: 1
@@ -17481,7 +17497,7 @@ TextMesh:
   m_FontSize: 64
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: fa71322a4c2664d08802ce0b37e3a6e2, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -17497,7 +17513,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: fa71322a4c2664d08802ce0b37e3a6e2, type: 3}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -17505,6 +17521,18 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &1250317207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1250317203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc96aa205e01347eb9d74e2925484cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 149662366}
 --- !u!1 &1271235972
 GameObject:
   m_ObjectHideFlags: 0
@@ -19050,6 +19078,8 @@ MonoBehaviour:
   buttonLit: 0
   childOn: {fileID: 2137739231}
   childOff: {fileID: 1820128951}
+  audio: {fileID: 0}
+  sndBeep: {fileID: 0}
 --- !u!65 &1423432329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27365,6 +27395,8 @@ MonoBehaviour:
   buttonLit: 0
   childOn: {fileID: 1064801607}
   childOff: {fileID: 156517247}
+  audio: {fileID: 0}
+  sndBeep: {fileID: 0}
 --- !u!65 &2037567530
 BoxCollider:
   m_ObjectHideFlags: 0
