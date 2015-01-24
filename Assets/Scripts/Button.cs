@@ -25,7 +25,7 @@ public class Button : MonoBehaviour
 								Debug.DrawLine (ray.origin, hit.point);
 								ButtonState = (ButtonState + 1) % NOptions;
 								Debug.Log ("Ray hit! Button is now in state " + ButtonState);
-								OnPressed (ButtonState);
+								if(OnPressed != null) OnPressed (ButtonState);
 						}
 				}
 		}

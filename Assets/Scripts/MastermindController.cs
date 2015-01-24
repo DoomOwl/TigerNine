@@ -5,20 +5,18 @@ public class MastermindController : MonoBehaviour
 {
 		public Button VerifyButton;
 		public Button[] OtherButtons;
-
 		public bool IsStateValid = false;
 		public int[] ValidState;
 		public int NLow = 0;
 		public int NHigh = 0;
+		public int NInactive = 0;//number of inactive buttons in the valid state
 
 		// Use this for initialization
 		void Start ()
 		{
 				VerifyButton.OnPressed += VerifyState;
 
-				ValidState = new int[OtherButtons.Length];
-				for (int i = 0; i < OtherButtons.Length; ++i)
-						ValidState [i] = 1;
+				RandomizeValidState ();
 		}
 	
 		// Update is called once per frame
@@ -46,5 +44,37 @@ public class MastermindController : MonoBehaviour
 		void OnStateValid ()
 		{
 				Debug.Log ("State is valid!");
+				//increase number of inactive buttons and re-randomize new state
+				if(NInactive < OtherButtons.Length) NInactive ++;
+				else Debug.Log ("You Win!");
+
+				RandomizeValidState ();
+				
+		}
+
+		void RandomizeValidState ()
+		{
+				ValidState = new int[OtherButtons.Length];
+			
+				//populating new valid state
+				for (int i = 0; i < OtherButtons.Length; ++i) {
+						if(i < NInactive){
+								ValidState[i] = 0;
+						} else {
+								ValidState [i] = 1;
+						}
+				}
+
+				//shuffling validstate array
+				ShuffleArray(ValidState);
+		}
+
+		void ShuffleArray<T>(T[] arr) {
+			for (int i = arr.Length - 1; i > 0; i--) {
+				int r = Random.Range(0, i);
+				T tmp = arr[i];
+				arr[i] = arr[r];
+				arr[r] = tmp;
+			}
 		}
 }
