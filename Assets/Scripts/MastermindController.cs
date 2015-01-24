@@ -13,6 +13,10 @@ public class MastermindController : MonoBehaviour
 		public int NLow = 0;
 		public int NHigh = 0;
 		public int NInactive = 0; //number of inactive buttons in the valid state
+		
+		public AudioSource audio;
+		public AudioClip sndWrong;
+		public AudioClip sndRight;
 
 		// Use this for initialization
 		void Start ()
@@ -41,9 +45,12 @@ public class MastermindController : MonoBehaviour
 				Debug.Log ("NLow: " + NLow + " | NHigh: " + NHigh);
 				IsStateValid = NLow == 0 && NHigh == 0;
 				if (IsStateValid) {
-						StateValid ();
-						if (OnStateValid != null)
+					audio.PlayOneShot (sndRight,.5F);
+					StateValid ();
+					if (OnStateValid != null)
 								OnStateValid (NInactive);
+				} else {
+					audio.PlayOneShot (sndWrong);
 				}
 		}
 

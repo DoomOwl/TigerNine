@@ -14,6 +14,11 @@ public class Button : MonoBehaviour
 		
 		public GameObject childOn;
 		public GameObject childOff;
+		
+		//audio variables
+		public AudioSource audio; 
+		public AudioClip sndBeep;
+		
 
 		public delegate void PressAction (int pressedButtonState);
 		public event PressAction OnPressed;
@@ -69,11 +74,15 @@ public class Button : MonoBehaviour
 		
 				if (OnPressed != null)
 						OnPressed (ButtonState);
-		
+			
+				audio.PlayOneShot (sndBeep);
 				if (NOptions == 2) {
+						
 						buttonLit = ButtonState != 0;
+						
 				} else if (NOptions == 1) {
 						buttonLit = true;
+						
 						t = tMax;
 				}
 		
