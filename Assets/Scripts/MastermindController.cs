@@ -6,6 +6,9 @@ public class MastermindController : MonoBehaviour
 		public delegate void StateValidAction (int nSolved);
 		public event StateValidAction OnStateValid;
 
+		public delegate void ValidateAction (int nLow,int nHigh);
+		public event ValidateAction OnValidate;
+
 		public Button VerifyButton;
 		public Button[] OtherButtons;
 		public bool IsStateValid = false;
@@ -39,6 +42,7 @@ public class MastermindController : MonoBehaviour
 								++NHigh;
 				}
 				Debug.Log ("NLow: " + NLow + " | NHigh: " + NHigh);
+				OnValidate (NLow, NHigh);
 				IsStateValid = NLow == 0 && NHigh == 0;
 				if (IsStateValid) {
 						StateValid ();
