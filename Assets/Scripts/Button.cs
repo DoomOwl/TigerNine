@@ -6,6 +6,12 @@ public class Button : MonoBehaviour
 		public int ButtonState = 0;
 		public int NOptions = 2;
 		
+		//timing variables for non-toggling buttons
+		public int t = 0;
+		public int tMax = 20;
+		
+		public bool buttonLit = false;
+		
 		public GameObject childOn;
 		public GameObject childOff;
 
@@ -52,6 +58,16 @@ public class Button : MonoBehaviour
 				//print("I'm looking at nothing!");
 				//deactivate all halos
 			}
+			
+			//timing variables
+			if(t > 0){
+				t --;
+				Debug.Log (t);
+				if(t <= 0){
+					buttonLit = false;
+					setLights ();
+				}
+			}
 		}
 	
 	public void Press()
@@ -60,10 +76,21 @@ public class Button : MonoBehaviour
 		
 		ButtonState = (ButtonState + 1) % NOptions;
 		Debug.Log ("Ray hit! Button is now in state " + ButtonState);
-			if(OnPressed != null) OnPressed (ButtonState);
 		
-		childOn.SetActive(ButtonState != 0);
-		childOff.SetActive(ButtonState == 0);
+		if(OnPressed != null) OnPressed (ButtonState);
 		
+		if(NOptions == 2){
+			buttonLit = ButtonState != 0;
+		} else if (NOptions == 1){
+			buttonLit = true;
+			t = tMax;
+		}
+		
+		setLights ();
+	}
+	
+	public void setLights(){
+		childOn.SetActive(buttonLit);
+		childOff.SetActive(!buttonLit);
 	}
 }
