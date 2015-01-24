@@ -51,12 +51,7 @@ public class InfiniteStarfield : MonoBehaviour {
 				points[i].color = new Color(1,1,1, percent);
 				points[i].size = percent * starSize;
 			}
-			
-			
 		}
-		
-		
-		
 		
 		particleSystem.SetParticles ( points, points.Length );
 		
