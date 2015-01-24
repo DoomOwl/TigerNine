@@ -3,19 +3,22 @@ using System.Collections;
 
 public class MastermindController : MonoBehaviour
 {
+		public delegate void StateValidAction ();
+		public event StateValidAction OnStateValid;
+
 		public Button VerifyButton;
 		public Button[] OtherButtons;
 		public bool IsStateValid = false;
 		public int[] ValidState;
 		public int NLow = 0;
 		public int NHigh = 0;
-		public int NInactive = 0;//number of inactive buttons in the valid state
+		public int NInactive = 0; //number of inactive buttons in the valid state
 
 		// Use this for initialization
 		void Start ()
 		{
 				VerifyButton.OnPressed += VerifyState;
-
+				this.OnStateValid += StateValid;
 				RandomizeValidState ();
 		}
 	
@@ -41,7 +44,7 @@ public class MastermindController : MonoBehaviour
 						OnStateValid ();
 		}
 
-		void OnStateValid ()
+		void StateValid ()
 		{
 				Debug.Log ("State is valid!");
 				//increase number of inactive buttons and re-randomize new state
@@ -51,7 +54,6 @@ public class MastermindController : MonoBehaviour
 						Debug.Log ("You Win!");
 
 				RandomizeValidState ();
-				
 		}
 
 		void RandomizeValidState ()
