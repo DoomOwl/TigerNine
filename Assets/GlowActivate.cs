@@ -7,8 +7,10 @@ public class GlowActivate : MonoBehaviour {
 	//GameObject switch_0 
 	public GameObject childOn;
 	public GameObject childOff;
+	
+	public Button btn;
 		
-		void Awake() {
+		void Start() {
 			childOn.SetActive (false);
 			childOff.SetActive (true);
 		}
@@ -21,7 +23,7 @@ public class GlowActivate : MonoBehaviour {
 
 				
 			if (collider.Raycast (ray, out hit, 10.0f)) { //&& hit.transform.tag == "button") {
-						print ("I'm looking at " + hit.transform.name);
+						//print ("I'm looking at " + hit.transform.name);
 						h.enabled = true;
 						//(gameObject.GetComponent("Halo")).enabled = true;
 						//GetComponent (Halo).enabled = true;
@@ -29,12 +31,15 @@ public class GlowActivate : MonoBehaviour {
 					if (Input.GetButtonDown("Fire1")) {
 						childOn.SetActive(!childOn.activeSelf);
 						childOff.SetActive(!childOff.activeSelf);
-						}	
+						btn.Press ();
+				
+					}	
 
 						for (var i = 0; i < Input.touchCount; ++i) {
 								if (Input.GetTouch (i).phase == TouchPhase.Began) {
 									childOn.SetActive(!childOn.activeSelf);
 									childOff.SetActive(!childOff.activeSelf);
+									btn.Press ();
 									Handheld.Vibrate ();
 								} 
 						} 

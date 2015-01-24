@@ -29,6 +29,7 @@ public class MastermindController : MonoBehaviour
 
 		void VerifyState (int pressedButtonState)
 		{
+				VerifyButton.ButtonState = 0;
 				Debug.Log ("Verifying state:");
 				NLow = NHigh = 0;
 				for (int i = 0; i < OtherButtons.Length; ++i) {

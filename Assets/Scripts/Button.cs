@@ -18,15 +18,19 @@ public class Button : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if (Input.GetMouseButtonDown (0)) {
+				/*if (Input.GetMouseButtonDown (0)) {
 						Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 						RaycastHit hit;
-						if (collider.Raycast (ray, out hit, 10.0f)) {
-								Debug.DrawLine (ray.origin, hit.point);
-								ButtonState = (ButtonState + 1) % NOptions;
-								Debug.Log ("Ray hit! Button is now in state " + ButtonState);
-								if(OnPressed != null) OnPressed (ButtonState);
+						if (collider.Raycast (ray, out hit, 100.0f)) {
+								Press ();
 						}
-				}
+				}*/
+		}
+		
+		public void Press()
+		{
+			ButtonState = (ButtonState + 1) % NOptions;
+			Debug.Log ("Ray hit! Button is now in state " + ButtonState);
+			if(OnPressed != null) OnPressed (ButtonState);
 		}
 }
