@@ -26,7 +26,7 @@ public class MastermindController : MonoBehaviour
 		{
 		}
 
-		void VerifyState ()
+		void VerifyState (int pressedButtonState)
 		{
 				Debug.Log ("Verifying state");
 				NLow = NHigh = 0;
@@ -40,6 +40,11 @@ public class MastermindController : MonoBehaviour
 				Debug.Log ("NLow: " + NLow + " | NHigh: " + NHigh);
 				IsStateValid = NLow == 0 && NHigh == 0;
 				if (IsStateValid)
-						Debug.Log ("State is valid!");
+						OnStateValid ();
+		}
+
+		void OnStateValid ()
+		{
+				Debug.Log ("State is valid!");
 		}
 }
