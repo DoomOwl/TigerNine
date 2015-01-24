@@ -55,7 +55,6 @@ public class Button : MonoBehaviour
 				//timing variables
 				if (t > 0) {
 						t --;
-						Debug.Log (t);
 						if (t <= 0) {
 								buttonLit = false;
 								setLights ();
