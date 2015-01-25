@@ -201,7 +201,7 @@ Transform:
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 400018}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -263,7 +263,7 @@ Transform:
   m_Children:
   - {fileID: 400012}
   m_Father: {fileID: 400018}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &400016
 Transform:
   m_ObjectHideFlags: 1
@@ -277,20 +277,20 @@ Transform:
   - {fileID: 400008}
   - {fileID: 400006}
   m_Father: {fileID: 400018}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!4 &400018
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
-  m_LocalRotation: {x: .742403865, y: -.242403954, z: -.346188605, w: -.519836903}
-  m_LocalPosition: {x: .874489725, y: -.51793015, z: .596383154}
+  m_LocalRotation: {x: -.816035032, y: .0499904752, z: .0713938177, w: .571393728}
+  m_LocalPosition: {x: .340468407, y: -.511738598, z: .907589436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400016}
   - {fileID: 400004}
   - {fileID: 400014}
+  - {fileID: 400016}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2300000
@@ -325,7 +325,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f92c042353de2b348aeea76581ff1544, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -519,8 +519,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 100016}
   childOff: {fileID: 100014}
   audio: {fileID: 8251106}
