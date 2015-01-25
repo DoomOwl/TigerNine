@@ -14,6 +14,8 @@ public class LevelResetButton : Button {
 	}
 
 	void ResetLevel (int pressedButtonState) {
+		Debug.Log ("Reset");
 		Application.LoadLevel(Application.loadedLevel);
+		
 	}
 }

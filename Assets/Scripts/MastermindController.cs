@@ -28,7 +28,11 @@ public class MastermindController : MonoBehaviour
 		public AudioClip[] sndConfBG;
 		public AudioSource[] sndConfLoops;
 		
+		public AudioSource Radio;
+		public AudioClip sndRadioChatter;
+		
 		public static bool GameStarted = false;
+		public SceneFadeInOut Fader;
 		
 		//lights
 		public bool Introduction = true;
@@ -65,7 +69,7 @@ public class MastermindController : MonoBehaviour
 				sndRight = ImportSound("sounds/confirmation");
 				sndINTRO = ImportSound ("sounds/oneshot_intro_FULLCUTSCENE");
 				
-				audio.PlayOneShot (sndINTRO);
+				//audio.PlayOneShot (sndINTRO);
 				
 				//computerized voice at end of each round
 				sndConfVoices = new AudioClip[8];
@@ -213,6 +217,7 @@ public class MastermindController : MonoBehaviour
 		void StateValid ()
 		{
 				Debug.Log ("State is valid!");
+				
 				audio.PlayOneShot(sndConfVoices[NInactive]);
 				if(sndConfBG[NInactive] != null){
 					audio.PlayOneShot(sndConfBG[NInactive]);
@@ -235,12 +240,18 @@ public class MastermindController : MonoBehaviour
 					if(NInactive <= UI.Icons.Length) UI.Icons[NInactive-1].color = Color.green;
 				}
 				
+				if(NInactive == 2){
+					Radio.clip = sndRadioChatter;
+					Radio.Play();
+			    }
+				
 				//increase number of inactive buttons and re-randomize new state
 				if (NInactive < OtherButtons.Length)
 						NInactive++;
 				else {
 					Debug.Log ("You Win!");
-					audio.PlayOneShot(sndConfVoices[7]);
+					Fader.transform.position = transform.position;
+					Fader.sceneEnding = true;
 				}
 
 				RandomizeValidState ();

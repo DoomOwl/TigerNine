@@ -6,7 +6,10 @@ public class SceneFadeInOut : MonoBehaviour
 	
 	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
 	private bool sceneStarting = true;      // Whether or not the scene is still fading in.
+	public bool sceneEnding = false;
 	public GUITexture guiTexture;
+	
+	public MastermindController mc;
 	
 	void Awake ()
 		
@@ -22,6 +25,11 @@ public class SceneFadeInOut : MonoBehaviour
 		if (sceneStarting)
 			// ... call the StartScene function.
 			StartScene();
+		
+		if(sceneEnding){
+			EndScene (2,0.15F);
+		}
+		
 	}
 	
 	public void FadeToClear ()		
@@ -53,12 +61,13 @@ public class SceneFadeInOut : MonoBehaviour
 		}
 	}
 	
-	public void EndScene (string name, float fadeSpeedInput)
+	public void EndScene (int name, float fadeSpeedInput)
 		
 	{
 		// Make sure the texture is enabled.
 		guiTexture.enabled = true;
 		fadeSpeed = fadeSpeedInput;
+		sceneEnding = true;
 		
 		// Start fading towards black.
 		FadeToBlack();
