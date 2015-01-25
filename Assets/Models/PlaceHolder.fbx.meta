@@ -13,6 +13,11 @@ ModelImporter:
     100014: newShipHull
     100016: pCube13
     100018: pSphere3
+    100020: newDOME
+    100022: pSphere6
+    100024: pSphere7
+    100026: transform5
+    100028: transform6
     400000: //RootNode
     400002: engine
     400004: front lasers
@@ -23,6 +28,11 @@ ModelImporter:
     400014: newShipHull
     400016: pCube13
     400018: pSphere3
+    400020: newDOME
+    400022: pSphere6
+    400024: pSphere7
+    400026: transform5
+    400028: transform6
     2300000: //RootNode
     2300002: engine
     2300004: front lasers
@@ -33,6 +43,7 @@ ModelImporter:
     2300014: newShipHull
     2300016: pCube13
     2300018: pSphere3
+    2300020: newDOME
     3300000: //RootNode
     3300002: engine
     3300004: front lasers
@@ -43,6 +54,7 @@ ModelImporter:
     3300014: newShipHull
     3300016: pCube13
     3300018: pSphere3
+    3300020: newDOME
     4300000: polySurface6
     4300002: Layer:Body
     4300004: front lasers
@@ -52,6 +64,7 @@ ModelImporter:
     4300012: newShipHull
     4300014: pCube13
     4300016: pSphere3
+    4300018: newDOME
     9500000: //RootNode
   materials:
     importMaterials: 1
