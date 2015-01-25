@@ -45,6 +45,9 @@ public class MastermindController : MonoBehaviour
 		
 		public Light[] roomLights;
 
+		//particles
+		public GameObject SmokeParticles;
+
 		// Use this for initialization
 		void Start ()
 		{
@@ -89,6 +92,9 @@ public class MastermindController : MonoBehaviour
 				sndConfLoops[5] = null;
 				sndConfLoops[6] = aSources[2];
 				sndConfLoops[7] = null;
+				
+				//Particle States
+				SmokeParticles.SetActive(false);
 			
 		}
 		
@@ -120,6 +126,7 @@ public class MastermindController : MonoBehaviour
 						OtherButtons[i].buttonLit = Random.Range (0,10) < 5;
 						OtherButtons[i].setLights ();
 					}
+					SmokeParticles.SetActive(true);
 				}
 				
 				breakTimer ++;
@@ -127,6 +134,7 @@ public class MastermindController : MonoBehaviour
 				if(breakTimer >= breakTimerLimit){
 					Silence = true;
 					BreakingDown = false;
+					SmokeParticles.SetActive(false);
 					
 					for(int i=0;i<roomLights.Length;i++){
 						roomLights[i].enabled = false;

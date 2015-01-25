@@ -4,8 +4,8 @@ using System.Collections;
 public class fleetWarpDelay : MonoBehaviour
 {
 
-		private int launchDelay = 400;
-		private int launchRand = 60;
+		private int launchDelay = 385;
+		private int launchRand = 50;
 		private bool notLaunched = true;
 		private float lifetime = 5f;
 
@@ -13,6 +13,7 @@ public class fleetWarpDelay : MonoBehaviour
 		void Start ()
 		{
 				notLaunched = true;
+				//audio.Play();
 				//Destroy (gameObject, lifetime);
 		}
 	
@@ -25,6 +26,7 @@ public class fleetWarpDelay : MonoBehaviour
 						int launch = Random.Range (1, launchRand);
 						if (launch == 1) {
 								animation.Play ("warpNew");
+								audio.Play ();
 								notLaunched = false;
 								Destroy (gameObject, lifetime);
 								return;
