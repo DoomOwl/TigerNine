@@ -4,10 +4,39 @@ ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
+    100002: engine
+    100004: front lasers
+    100006: Layer:Body
+    100008: missiles
+    100010: polySurface6
+    100012: pTorus1
     400000: //RootNode
+    400002: engine
+    400004: front lasers
+    400006: Layer:Body
+    400008: missiles
+    400010: polySurface6
+    400012: pTorus1
     2300000: //RootNode
+    2300002: engine
+    2300004: front lasers
+    2300006: Layer:Body
+    2300008: missiles
+    2300010: polySurface6
+    2300012: pTorus1
     3300000: //RootNode
+    3300002: engine
+    3300004: front lasers
+    3300006: Layer:Body
+    3300008: missiles
+    3300010: polySurface6
+    3300012: pTorus1
     4300000: polySurface6
+    4300002: Layer:Body
+    4300004: front lasers
+    4300006: missiles
+    4300008: engine
+    4300010: pTorus1
     9500000: //RootNode
   materials:
     importMaterials: 1
