@@ -19,6 +19,7 @@ public class MastermindController : MonoBehaviour
 		
 		//audio files
 		public AudioSource audio;
+		public AudioClip sndINTRO;
 		public AudioClip sndWrong;
 		public AudioClip sndRight;
 		
@@ -26,6 +27,23 @@ public class MastermindController : MonoBehaviour
 		public AudioClip[] sndConfVoices;
 		public AudioClip[] sndConfBG;
 		public AudioSource[] sndConfLoops;
+		
+		public static bool GameStarted = false;
+		
+		//lights
+		public bool Introduction = true;
+		public int introTimer = 0;
+		public int introLimit = 1000;
+		
+		public bool BreakingDown = false;
+		public int breakTimer = 0;
+		public int breakTimerLimit = 30;
+		
+		public bool Silence = false;
+		public int silenceTimer = 0;
+		public int silenceLimit = 30;
+		
+		public Light[] roomLights;
 
 		// Use this for initialization
 		void Start ()
@@ -35,6 +53,9 @@ public class MastermindController : MonoBehaviour
 				
 				sndWrong = ImportSound("sounds/error_beep");
 				sndRight = ImportSound("sounds/confirmation");
+				sndINTRO = ImportSound ("sounds/oneshot_intro_FULLCUTSCENE");
+				
+				audio.PlayOneShot (sndINTRO);
 				
 				//computerized voice at end of each round
 				sndConfVoices = new AudioClip[8];
@@ -78,14 +99,64 @@ public class MastermindController : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+			if(Introduction){
+				introTimer ++;
+				if(introTimer >= introLimit){
+					Introduction = false;
+					BreakingDown = true;
+				}
+			}
 			//keyboard controls for debugging
 			if(Input.GetKeyUp ("n")){
 				StateValid ();
+			}
+			
+			if(BreakingDown){
+				if(breakTimer % 5 == 0){
+					for(int i=0;i<roomLights.Length;i++){
+						roomLights[i].enabled = Random.Range (0,10) < 5;
+					}
+					for(int i=0;i<OtherButtons.Length;i++){
+						OtherButtons[i].buttonLit = Random.Range (0,10) < 5;
+						OtherButtons[i].setLights ();
+					}
+				}
+				
+				breakTimer ++;
+				
+				if(breakTimer >= breakTimerLimit){
+					Silence = true;
+					BreakingDown = false;
+					
+					for(int i=0;i<roomLights.Length;i++){
+						roomLights[i].enabled = false;
+					}
+					VerifyButton.buttonLit = false;
+					VerifyButton.setLights ();
+					for(int i=0;i<OtherButtons.Length;i++){
+						OtherButtons[i].buttonLit = false;
+						OtherButtons[i].setLights ();
+					}
+					Debug.Log ("done breaking");
+				}
+			}
+			
+			if(Silence){
+				silenceTimer ++;
+				
+				if(silenceTimer >= silenceLimit){
+					Debug.Log ("start blinking");
+					Silence = false;
+					GameStarted = true;
+					
+					VerifyButton.blinking = true;
+				}
 			}
 		}
 
 		void VerifyState (int pressedButtonState)
 		{
+			if(GameStarted){
 				VerifyButton.ButtonState = 0;
 				Debug.Log ("Verifying state:");
 				NLow = NHigh = 0;
@@ -107,6 +178,7 @@ public class MastermindController : MonoBehaviour
 				} else {
 					audio.PlayOneShot (sndWrong);
 				}
+			}
 		}
 
 		void StateValid ()
@@ -118,6 +190,13 @@ public class MastermindController : MonoBehaviour
 				}
 				if(sndConfLoops[NInactive] != null){
 					sndConfLoops[NInactive].Play ();
+				}
+				
+				if(NInactive == 0){
+					//turn on the lights
+					for(int i=0;i<roomLights.Length;i++){
+						roomLights[i].enabled = true;
+					}
 				}
 				
 				//increase number of inactive buttons and re-randomize new state

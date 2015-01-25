@@ -3,7 +3,7 @@ using System.Collections;
 
 public class fleetWarpDelay : MonoBehaviour {
 
-	private int launchDelay = 80;
+	private int launchDelay = 360;
 	private int launchRand = 60;
 	private bool notLaunched = true;
 	private float lifetime = 5f;
