@@ -2,7 +2,7 @@
 var guiObject : GUITexture;
 
 var fadeTime = 1.0;
-var nextscene= 1;
+//var nextscene= "prototype";
 
 enum Fade {In, Out}
 
@@ -23,7 +23,7 @@ function Start () {
 	
 	yield WaitForSeconds(0.25);
     
-    Application.LoadLevel(nextscene);
+    Application.LoadLevel("prototype");
 }
 
  
