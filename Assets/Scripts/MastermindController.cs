@@ -51,7 +51,7 @@ public class MastermindController : MonoBehaviour
 		//particles
 		public GameObject SmokeParticles;
 
-		public GameObject UI;
+		public HintDisplay UI;
 
 		// Use this for initialization
 		void Start ()
@@ -137,16 +137,15 @@ public class MastermindController : MonoBehaviour
 						transform.position.z
 					);
 					transform.position = newPos;
-				if(breakTimer % 5 == 0){
+					
 					for(int i=0;i<roomLights.Length;i++){
-						roomLights[i].enabled = Random.Range (0,10) < 5;
+						roomLights[i].enabled = Random.Range (0,10) <= 2;
 					}
 					for(int i=0;i<OtherButtons.Length;i++){
-						OtherButtons[i].buttonLit = Random.Range (0,10) < 5;
+						OtherButtons[i].buttonLit = Random.Range (0,10) <= 2;
 						OtherButtons[i].setLights ();
 					}
 					SmokeParticles.SetActive(true);
-				}
 				
 				breakTimer += Time.deltaTime;
 				
@@ -222,11 +221,18 @@ public class MastermindController : MonoBehaviour
 					sndConfLoops[NInactive].Play ();
 				}
 				
+				
+				
 				if(NInactive == 0){
 					//turn on the lights
 					for(int i=0;i<roomLights.Length;i++){
 						roomLights[i].enabled = true;
 					}
+					for(int i=0;i<UI.Icons.Length;i++){
+						UI.Icons[i].enabled = true;
+					}
+				} else {
+					if(NInactive <= UI.Icons.Length) UI.Icons[NInactive-1].color = Color.green;
 				}
 				
 				//increase number of inactive buttons and re-randomize new state
