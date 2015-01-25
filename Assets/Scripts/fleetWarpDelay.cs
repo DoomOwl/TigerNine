@@ -5,7 +5,7 @@ public class fleetWarpDelay : MonoBehaviour
 {
 
 		private float launchDelay = 41f;
-		private float launchRand = 2f;
+		private float launchRand = 4f;
 		private bool notLaunched = true;
 		private float lifetime = 5f;
 
@@ -18,9 +18,6 @@ public class fleetWarpDelay : MonoBehaviour
 		{
 				notLaunched = true;
 				launchDelay += Random.Range(0, launchRand);
-				Debug.Log(launchDelay);
-				//audio.Play();
-				//Destroy (gameObject, lifetime);
 				frameOffset = Random.Range (0,600);
 		}
 	
