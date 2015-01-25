@@ -3384,7 +3384,7 @@ MonoBehaviour:
   introLimit: 3000
   BreakingDown: 0
   breakTimer: 0
-  breakTimerLimit: 520
+  breakTimerLimit: 480
   Silence: 0
   silenceTimer: 0
   silenceLimit: 400
