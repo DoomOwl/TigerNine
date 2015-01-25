@@ -1,7 +1,7 @@
 ﻿#pragma strict
 var guiObject : GUITexture;
 
-var fadeTime = 1.0;
+var fadeTime = 2.0;
 //var nextscene= "prototype";
 
 enum Fade {In, Out}
@@ -26,7 +26,14 @@ function Start () {
     Application.LoadLevel("prototype");
 }
 
- 
+function Update () {
+	if(Input.anyKey) {
+		//yield FadeGUITexture(guiObject, fadeTime, Fade.Out);
+		Application.LoadLevel(1);	
+		Debug.Log("A key or mouse click has been detected");
+	}
+
+ }
 
 function FadeGUITexture (guiObject : GUITexture, timer : float, fadeType : Fade) {
 

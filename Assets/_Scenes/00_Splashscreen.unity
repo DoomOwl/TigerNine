@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiObject: {fileID: 93772274}
-  fadeTime: 10
+  fadeTime: 12
 --- !u!1 &153491908
 GameObject:
   m_ObjectHideFlags: 0
@@ -10729,7 +10729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &802182143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17601,7 +17601,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7d5f7699d6d1d48e485ac71126e12061, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 7d5f7699d6d1d48e485ac71126e12061, type: 2}
       propertyPath: m_Enabled
@@ -17611,6 +17611,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a030ebfebe75fbf4ba0fd2cabba37826, type: 2}
+    - target: {fileID: 100000, guid: 7d5f7699d6d1d48e485ac71126e12061, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d5f7699d6d1d48e485ac71126e12061, type: 2}
   m_RootGameObject: {fileID: 802182142}
