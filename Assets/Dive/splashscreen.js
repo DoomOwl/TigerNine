@@ -3,14 +3,18 @@ var guiObject : GUITexture;
 
 var fadeTime = 2.0;
 //var nextscene= "prototype";
+var material1 : Material;
+var material2 : Material;
+var duration = 1.0;
+
 
 enum Fade {In, Out}
-
- 
 
 // Fade in the GUITexture, wait a couple of seconds, then fade it out
 
 function Start () {
+    renderer.material = material1;
+
     guiObject.color.a = 0;
 
     yield WaitForSeconds(0.5);
@@ -27,6 +31,10 @@ function Start () {
 }
 
 function Update () {
+	var lerp = Mathf.PingPong(Time.time, duration) / duration;
+	renderer.material.Lerp(material1, material2, lerp);
+
+	
 	if(Input.anyKey) {
 		//yield FadeGUITexture(guiObject, fadeTime, Fade.Out);
 		Application.LoadLevel(1);	
