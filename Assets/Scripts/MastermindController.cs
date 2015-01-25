@@ -110,6 +110,11 @@ public class MastermindController : MonoBehaviour
 				if(introTimer >= introLimit){
 					Introduction = false;
 					BreakingDown = true;
+				} else {
+					for(int i=0;i<OtherButtons.Length;i++){
+						OtherButtons[i].buttonLit = true;
+						OtherButtons[i].setLights ();
+					}
 				}
 			}
 			//keyboard controls for debugging
@@ -176,7 +181,7 @@ public class MastermindController : MonoBehaviour
 								++NHigh;
 				}
 				Debug.Log ("NLow: " + NLow + " | NHigh: " + NHigh);
-				OnValidate (NLow, NHigh);
+				if(OnValidate != null) OnValidate (NLow, NHigh);
 				IsStateValid = NLow == 0 && NHigh == 0;
 				if (IsStateValid) {
 					audio.PlayOneShot (sndRight,.5F);
