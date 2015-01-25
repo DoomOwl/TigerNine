@@ -31,7 +31,7 @@ public class HintDisplay : MonoBehaviour
 				}
 			} else if (Controller.Silence){
 				for(int i=0;i<Icons.Length;i++){
-					Icons[i].enabled = true;
+					Icons[i].enabled = false;
 					Icons[i].color = Color.red;
 				}
 			}

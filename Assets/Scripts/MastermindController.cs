@@ -221,13 +221,18 @@ public class MastermindController : MonoBehaviour
 					sndConfLoops[NInactive].Play ();
 				}
 				
-				if(NInactive < UI.Icons.Length) UI.Icons[NInactive].color = Color.green;
+				
 				
 				if(NInactive == 0){
 					//turn on the lights
 					for(int i=0;i<roomLights.Length;i++){
 						roomLights[i].enabled = true;
 					}
+					for(int i=0;i<UI.Icons.Length;i++){
+						UI.Icons[i].enabled = true;
+					}
+				} else {
+					if(NInactive <= UI.Icons.Length) UI.Icons[NInactive-1].color = Color.green;
 				}
 				
 				//increase number of inactive buttons and re-randomize new state
