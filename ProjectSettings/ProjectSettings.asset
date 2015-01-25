@@ -12,7 +12,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: TigerSquadww
   productName: ggj2015
-  defaultCursor: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
@@ -67,7 +67,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.TigerSquad.Tiger9
+  iPhoneBundleIdentifier: com.TigerSquad.TigerNine
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 1468a3fde98556a439610400ce9fc536
@@ -109,7 +109,7 @@ PlayerSettings:
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 2800000, guid: e976c6d3ebc1e4a85aa7186a3192d8c5, type: 3}
+    - m_Icon: {fileID: 2800000, guid: b3c6f6d779200f0468bedc1d5af8088f, type: 3}
       m_Size: 128
   m_BuildTargetBatching:
   - m_BuildTarget: Android
