@@ -7,7 +7,7 @@ public class Button : MonoBehaviour
 		public int NOptions = 2;
 		
 		//timing variables for non-toggling buttons
-		public int t = 0;
+		private int t = 0;
 		public int tMax = 20;
 		
 		public bool buttonLit = false;
