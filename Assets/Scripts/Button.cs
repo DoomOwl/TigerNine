@@ -12,7 +12,8 @@ public class Button : MonoBehaviour
 		
 		public bool buttonLit = true;
 		public bool blinking = false;
-		
+		public bool magnetDetectionEnabled = true;
+
 		public GameObject childOn;
 		public GameObject childOff;
 		
@@ -34,6 +35,11 @@ public class Button : MonoBehaviour
 		
 				childOn.SetActive (true);
 				childOff.SetActive (false);
+
+				CardboardMagnetSensor.SetEnabled(magnetDetectionEnabled);
+				// Disable screen dimming:
+				Screen.sleepTimeout = SleepTimeout.NeverSleep;	
+
 		}
 	
 		// Update is called once per frame
@@ -56,6 +62,16 @@ public class Button : MonoBehaviour
 						//(gameObject.GetComponent("Halo")).enabled = true;
 						//GetComponent (Halo).enabled = true;
 						//(gameObject.GetComponent("Halo") as Behaviour).enabled = true; 
+						if (!magnetDetectionEnabled) return;
+						if (CardboardMagnetSensor.CheckIfWasClicked()) {
+							Press ();
+							Handheld.Vibrate();
+							Debug.Log("MAGNET STATE CHANGE!");  
+							CardboardMagnetSensor.ResetClick();
+					}
+
+
+
 						if (Input.GetButtonDown ("Fire1"))
 								Press ();
 						for (var i = 0; i < Input.touchCount; ++i) {
