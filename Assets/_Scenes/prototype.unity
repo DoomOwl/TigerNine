@@ -3173,6 +3173,7 @@ MonoBehaviour:
   - {fileID: 1966384762}
   - {fileID: 1935378581}
   SmokeParticles: {fileID: 1948994396}
+  UI: {fileID: 0}
 --- !u!82 &149662367
 AudioSource:
   m_ObjectHideFlags: 0
