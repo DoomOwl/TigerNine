@@ -26,8 +26,19 @@ function Start () {
     yield FadeGUITexture(guiObject, fadeTime, Fade.Out);
 	
 	yield WaitForSeconds(0.25);
+	
+	yield FadeGUITexture(guiObject, fadeTime, Fade.In);
+
+    yield WaitForSeconds(0.25);
+
+    yield FadeGUITexture(guiObject, fadeTime, Fade.Out);
+	
+	yield WaitForSeconds(0.25);
+	
+	
+	
     
-    Application.LoadLevel("prototype");
+    //Application.LoadLevel("prototype");
 }
 
 function Update () {
