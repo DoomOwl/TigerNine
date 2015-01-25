@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 2.18556941e-08, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .171018511, y: .0241754875, z: .064316541}
+  m_LocalScale: {x: .256500006, y: .0359999985, z: .0964000002}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 2
@@ -121,8 +121,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: .0565628819, y: .00108122837, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .0809129179, y: .00108116388, z: 2.04762074e-07}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400010}
   - {fileID: 400008}
@@ -135,8 +135,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: -.0540162735, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.0851894468, y: -8.6612971e-08, z: 2.04890966e-07}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 0
@@ -146,8 +146,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .119312778}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -270,7 +270,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .170000002, y: -.0299999993, z: .0500000007}
+  m_Size: {x: .25999999, y: .0599999987, z: .0799999982}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9500000
 Animator:
@@ -337,6 +337,7 @@ MonoBehaviour:
   t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 100002}
   childOff: {fileID: 100004}
   audio: {fileID: 0}
