@@ -10,6 +10,9 @@ ModelImporter:
     100008: missiles
     100010: polySurface6
     100012: pTorus1
+    100014: newShipHull
+    100016: pCube13
+    100018: pSphere3
     400000: //RootNode
     400002: engine
     400004: front lasers
@@ -17,6 +20,9 @@ ModelImporter:
     400008: missiles
     400010: polySurface6
     400012: pTorus1
+    400014: newShipHull
+    400016: pCube13
+    400018: pSphere3
     2300000: //RootNode
     2300002: engine
     2300004: front lasers
@@ -24,6 +30,9 @@ ModelImporter:
     2300008: missiles
     2300010: polySurface6
     2300012: pTorus1
+    2300014: newShipHull
+    2300016: pCube13
+    2300018: pSphere3
     3300000: //RootNode
     3300002: engine
     3300004: front lasers
@@ -31,12 +40,18 @@ ModelImporter:
     3300008: missiles
     3300010: polySurface6
     3300012: pTorus1
+    3300014: newShipHull
+    3300016: pCube13
+    3300018: pSphere3
     4300000: polySurface6
     4300002: Layer:Body
     4300004: front lasers
     4300006: missiles
     4300008: engine
     4300010: pTorus1
+    4300012: newShipHull
+    4300014: pCube13
+    4300016: pSphere3
     9500000: //RootNode
   materials:
     importMaterials: 1
