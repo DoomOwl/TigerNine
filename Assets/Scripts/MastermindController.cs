@@ -38,12 +38,15 @@ public class MastermindController : MonoBehaviour
 		public bool BreakingDown = false;
 		public int breakTimer = 0;
 		public int breakTimerLimit = 30;
+		//screen shake variables
+		private Vector2 Origin;
 		
 		public bool Silence = false;
 		public int silenceTimer = 0;
 		public int silenceLimit = 30;
 		
 		public Light[] roomLights;
+		
 
 		//particles
 		public GameObject SmokeParticles;
@@ -51,6 +54,8 @@ public class MastermindController : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
+				Origin = new Vector2(transform.position.x,transform.position.y);
+				
 				VerifyButton.OnPressed += VerifyState;
 				RandomizeValidState ();
 				
@@ -123,6 +128,13 @@ public class MastermindController : MonoBehaviour
 			}
 			
 			if(BreakingDown){
+				//screen shake
+					Vector3 newPos = new Vector3(
+						Origin.x+Random.Range (-0.01F,0.01F),
+						Origin.y+Random.Range (-0.01F,0.01F),
+						transform.position.z
+					);
+					transform.position = newPos;
 				if(breakTimer % 5 == 0){
 					for(int i=0;i<roomLights.Length;i++){
 						roomLights[i].enabled = Random.Range (0,10) < 5;
@@ -150,6 +162,9 @@ public class MastermindController : MonoBehaviour
 						OtherButtons[i].buttonLit = false;
 						OtherButtons[i].setLights ();
 					}
+					
+					transform.position = new Vector3(Origin.x,Origin.y,transform.position.z);
+					
 					Debug.Log ("done breaking");
 				}
 			}
