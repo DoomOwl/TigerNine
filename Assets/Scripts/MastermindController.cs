@@ -38,12 +38,15 @@ public class MastermindController : MonoBehaviour
 		public bool BreakingDown = false;
 		public int breakTimer = 0;
 		public int breakTimerLimit = 30;
+		//screen shake variables
+		private Vector2 Origin;
 		
 		public bool Silence = false;
 		public int silenceTimer = 0;
 		public int silenceLimit = 30;
 		
 		public Light[] roomLights;
+		
 
 		//particles
 		public GameObject SmokeParticles;
@@ -53,6 +56,8 @@ public class MastermindController : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
+				Origin = new Vector2(transform.position.x,transform.position.y);
+				
 				VerifyButton.OnPressed += VerifyState;
 				RandomizeValidState ();
 				
@@ -120,9 +125,35 @@ public class MastermindController : MonoBehaviour
 								}
 						}
 				}
+<<<<<<< HEAD
 				//keyboard controls for debugging
 				if (Input.GetKeyUp ("n")) {
 						StateValid ();
+=======
+			}
+			//keyboard controls for debugging
+			if(Input.GetKeyUp ("n")){
+				StateValid ();
+			}
+			
+			if(BreakingDown){
+				//screen shake
+					Vector3 newPos = new Vector3(
+						Origin.x+Random.Range (-0.01F,0.01F),
+						Origin.y+Random.Range (-0.01F,0.01F),
+						transform.position.z
+					);
+					transform.position = newPos;
+				if(breakTimer % 5 == 0){
+					for(int i=0;i<roomLights.Length;i++){
+						roomLights[i].enabled = Random.Range (0,10) < 5;
+					}
+					for(int i=0;i<OtherButtons.Length;i++){
+						OtherButtons[i].buttonLit = Random.Range (0,10) < 5;
+						OtherButtons[i].setLights ();
+					}
+					SmokeParticles.SetActive(true);
+>>>>>>> a4d6c74a0cd0a323e21d97a1c722213f9c2f801b
 				}
 			
 				if (BreakingDown) {
@@ -144,6 +175,7 @@ public class MastermindController : MonoBehaviour
 								BreakingDown = false;
 								SmokeParticles.SetActive (false);
 					
+<<<<<<< HEAD
 								for (int i=0; i<roomLights.Length; i++) {
 										roomLights [i].enabled = false;
 								}
@@ -155,6 +187,21 @@ public class MastermindController : MonoBehaviour
 								}
 								Debug.Log ("done breaking");
 						}
+=======
+					for(int i=0;i<roomLights.Length;i++){
+						roomLights[i].enabled = false;
+					}
+					VerifyButton.buttonLit = false;
+					VerifyButton.setLights ();
+					for(int i=0;i<OtherButtons.Length;i++){
+						OtherButtons[i].buttonLit = false;
+						OtherButtons[i].setLights ();
+					}
+					
+					transform.position = new Vector3(Origin.x,Origin.y,transform.position.z);
+					
+					Debug.Log ("done breaking");
+>>>>>>> a4d6c74a0cd0a323e21d97a1c722213f9c2f801b
 				}
 			
 				if (Silence) {
