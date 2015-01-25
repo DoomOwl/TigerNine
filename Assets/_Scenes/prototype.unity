@@ -1636,8 +1636,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 569042550}
   childOff: {fileID: 1379749669}
   audio: {fileID: 126741794}
@@ -1774,8 +1776,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 354508047}
   childOff: {fileID: 1652345078}
   audio: {fileID: 131114895}
@@ -1955,8 +1959,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 156389476}
   childOff: {fileID: 1946607698}
   audio: {fileID: 142230134}
@@ -3367,11 +3373,25 @@ MonoBehaviour:
   NHigh: 0
   NInactive: 0
   audio: {fileID: 829779193}
+  sndINTRO: {fileID: 0}
   sndWrong: {fileID: 8300000, guid: c17e0dea6b3794964860210863390b09, type: 3}
   sndRight: {fileID: 8300000, guid: 62fdb34a8356a4e44b2c7bb194bb5e4d, type: 3}
   sndConfVoices: []
   sndConfBG: []
   sndConfLoops: []
+  Introduction: 1
+  introTimer: 0
+  introLimit: 3000
+  BreakingDown: 0
+  breakTimer: 0
+  breakTimerLimit: 480
+  Silence: 0
+  silenceTimer: 0
+  silenceLimit: 400
+  roomLights:
+  - {fileID: 965235192}
+  - {fileID: 672737188}
+  - {fileID: 1226221923}
 --- !u!82 &149662367
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6084,8 +6104,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 1470898147}
   childOff: {fileID: 406473041}
   audio: {fileID: 479860329}
@@ -9020,8 +9042,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 1025094724}
   childOff: {fileID: 955355393}
   audio: {fileID: 613213069}
@@ -12149,6 +12173,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &824762408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 824762409}
+  - 108: {fileID: 824762410}
+  m_Layer: 0
+  m_Name: AmbientLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &824762409
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 824762408}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: .460000008, y: .230000004, z: -.0599999987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2057753813}
+  m_RootOrder: 16
+--- !u!108 &824762410
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 824762408}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 0
+  m_Color: {r: .133055776, g: .133304492, b: .16911763, a: 1}
+  m_Intensity: 2.58999991
+  m_Range: 2.50999999
+  m_SpotAngle: 179
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &827592368
 GameObject:
   m_ObjectHideFlags: 0
@@ -12228,8 +12315,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 1
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 159997575}
   childOff: {fileID: 1307290290}
   audio: {fileID: 829779193}
@@ -26146,8 +26235,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 2137739231}
   childOff: {fileID: 1820128951}
   audio: {fileID: 1423432331}
@@ -41728,8 +41819,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  t: 0
   tMax: 20
   buttonLit: 0
+  blinking: 0
   childOn: {fileID: 1064801607}
   childOff: {fileID: 156517247}
   audio: {fileID: 2037567532}
@@ -41920,6 +42013,7 @@ Transform:
   - {fileID: 1716822906}
   - {fileID: 672737187}
   - {fileID: 1226221922}
+  - {fileID: 824762409}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &2057753814
@@ -41949,6 +42043,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2062879166
 GameObject:
   m_ObjectHideFlags: 0

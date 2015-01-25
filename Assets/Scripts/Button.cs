@@ -7,10 +7,11 @@ public class Button : MonoBehaviour
 		public int NOptions = 2;
 		
 		//timing variables for non-toggling buttons
-		private int t = 0;
+		public int t = 0;
 		public int tMax = 20;
 		
-		public bool buttonLit = false;
+		public bool buttonLit = true;
+		public bool blinking = false;
 		
 		public GameObject childOn;
 		public GameObject childOff;
@@ -19,6 +20,8 @@ public class Button : MonoBehaviour
 		public AudioSource audio; 
 		public AudioClip sndBeep;
 		
+		private Behaviour h;
+		
 
 		public delegate void PressAction (int pressedButtonState);
 		public event PressAction OnPressed;
@@ -26,17 +29,28 @@ public class Button : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				childOn.SetActive (false);
-				childOff.SetActive (true);
+				h = (Behaviour)GetComponent ("Halo");
+				h.enabled = false;
+		
+				childOn.SetActive (true);
+				childOff.SetActive (false);
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
+			if(blinking){
+				t ++;
+				if(t >= tMax * 2){
+					t = 0;
+					buttonLit = !buttonLit;
+					setLights ();
+				}
+			}
+			if(MastermindController.GameStarted){
 				Ray ray = Camera.main.ViewportPointToRay (new Vector3 (0.5F, 0.5F, 0));
 				RaycastHit hit;
-				Behaviour h = (Behaviour)GetComponent ("Halo");
-
+				
 				if (collider.Raycast (ray, out hit, 10.0f)) {
 						h.enabled = true;
 						//(gameObject.GetComponent("Halo")).enabled = true;
@@ -58,17 +72,23 @@ public class Button : MonoBehaviour
 				}
 			
 				//timing variables
-				if (t > 0) {
+				if (t > 0 && !blinking) {
 						t --;
 						if (t <= 0) {
 								buttonLit = false;
 								setLights ();
 						}
 				}
+			}
 		}
 	
 		public void Press ()
 		{
+			if(MastermindController.GameStarted){
+				if(blinking) {
+					blinking = false;
+					Debug.Log ("Done Blinking");
+				}
 				ButtonState = (ButtonState + 1) % NOptions;
 				Debug.Log ("Ray hit! Button is now in state " + ButtonState);
 		
@@ -87,6 +107,7 @@ public class Button : MonoBehaviour
 				}
 		
 				setLights ();
+			}
 		}
 	
 		public void setLights ()
