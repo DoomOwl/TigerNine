@@ -4,10 +4,12 @@ using System.Collections;
 public class fleetWarpDelay : MonoBehaviour
 {
 
-		private int launchDelay = 385;
-		private int launchRand = 50;
+		private float launchDelay = 41f;
+		private float launchRand = 2f;
 		private bool notLaunched = true;
 		private float lifetime = 5f;
+
+		public float time = 0;
 		
 		private int frameOffset = 0;
 
@@ -15,6 +17,8 @@ public class fleetWarpDelay : MonoBehaviour
 		void Start ()
 		{
 				notLaunched = true;
+				launchDelay += Random.Range(0, launchRand);
+				Debug.Log(launchDelay);
 				//audio.Play();
 				//Destroy (gameObject, lifetime);
 				frameOffset = Random.Range (0,600);
@@ -23,21 +27,15 @@ public class fleetWarpDelay : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				int frameTime = Time.frameCount / 6;
-				//Debug.Log (frameTime);
-				if (frameTime > launchDelay && notLaunched == true) {
-						int launch = Random.Range (1, launchRand);
-						if (launch == 1) {
-								animation.Play ("warpNew");
-								audio.Play ();
-								notLaunched = false;
-								Destroy (gameObject, lifetime);
-								return;
-								//Debug.Log (launch);
-						}
+				time += Time.deltaTime;
+				if (time > launchDelay && notLaunched) {
+					animation.Play ("warpNew");
+					audio.Play ();
+					notLaunched = false;
+					Destroy (gameObject, lifetime);
 				} else {
 					//subtle flying animations
-					int theta = (frameTime+frameOffset)/5;
+					int theta = (Time.frameCount / 6 + frameOffset)/5;
 					Vector3 newPos = new Vector3(transform.position.x+Mathf.Sin(theta)/600,
 			                             transform.position.y+Mathf.Sin(theta*2)/600,
 			                             transform.position.z);
