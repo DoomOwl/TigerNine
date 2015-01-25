@@ -1573,10 +1573,10 @@ GUITexture:
     y: -29
     width: 128
     height: 58
-  m_LeftBorder: 10
-  m_RightBorder: 10
-  m_TopBorder: 10
-  m_BottomBorder: 10
+  m_LeftBorder: 5
+  m_RightBorder: 5
+  m_TopBorder: 2
+  m_BottomBorder: 9
 --- !u!4 &93772275
 Transform:
   m_ObjectHideFlags: 0
@@ -1585,7 +1585,7 @@ Transform:
   m_GameObject: {fileID: 93772273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .5, y: .5, z: -3.72499228}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalScale: {x: .439999998, y: .300000012, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1741,6 +1741,7 @@ MonoBehaviour:
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 1557710521}
   childOff: {fileID: 2083316197}
   audio: {fileID: 204486020}
@@ -3455,6 +3456,7 @@ MonoBehaviour:
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 1663594407}
   childOff: {fileID: 1539541466}
   audio: {fileID: 340335486}
@@ -4187,6 +4189,7 @@ MonoBehaviour:
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 2007915865}
   childOff: {fileID: 1603670924}
   audio: {fileID: 502982656}
@@ -4411,7 +4414,7 @@ AudioSource:
   Mute: 0
   Priority: 128
   DopplerLevel: 1.57000005
-  MinDistance: 1.48000002
+  MinDistance: 4.01999998
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -4447,7 +4450,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .0666666701
+      value: .150000006
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8373,6 +8376,7 @@ MonoBehaviour:
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 421959736}
   childOff: {fileID: 800996770}
   audio: {fileID: 658422803}
@@ -15493,6 +15497,7 @@ MonoBehaviour:
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 532015211}
   childOff: {fileID: 2116007069}
   audio: {fileID: 1146597183}
@@ -16029,6 +16034,7 @@ MonoBehaviour:
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 844293498}
   childOff: {fileID: 2016884190}
   audio: {fileID: 1228519082}
@@ -18801,6 +18807,7 @@ MonoBehaviour:
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 482921790}
   childOff: {fileID: 965930540}
   audio: {fileID: 1426206422}
@@ -19352,6 +19359,7 @@ MonoBehaviour:
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 1032623593}
   childOff: {fileID: 1150293024}
   audio: {fileID: 1572312885}
