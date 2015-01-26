@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LevelResetButton : Button {
-
+public class LevelResetButton : MonoBehaviour {
+	public Button activeButton;
 	// Use this for initialization
 	void Start () {
-		this.OnPressed += ResetLevel;
+		activeButton.OnPressed += ResetLevel;
 	}
 	
 	// Update is called once per frame
@@ -16,6 +16,5 @@ public class LevelResetButton : Button {
 	void ResetLevel (int pressedButtonState) {
 		Debug.Log ("Reset");
 		Application.LoadLevel(Application.loadedLevel);
-		
 	}
 }

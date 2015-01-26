@@ -100,6 +100,8 @@ public class Button : MonoBehaviour
 	
 		public void Press ()
 		{
+			//if(gameObject.CompareTag("ResetButton"))
+			//	Application.LoadLevel(Application.loadedLevel);
 			if(MastermindController.GameStarted){
 				if(blinking) {
 					blinking = false;

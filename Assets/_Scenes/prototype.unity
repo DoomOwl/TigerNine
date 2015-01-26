@@ -5182,10 +5182,10 @@ GameObject:
   - 122: {fileID: 325006149}
   - 82: {fileID: 325006148}
   - 65: {fileID: 325006147}
-  - 114: {fileID: 325006146}
+  - 114: {fileID: 325006150}
   m_Layer: 0
   m_Name: ButtonCircle
-  m_TagString: Untagged
+  m_TagString: ResetButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5205,28 +5205,6 @@ Transform:
   - {fileID: 1722953689}
   m_Father: {fileID: 2057753813}
   m_RootOrder: 19
---- !u!114 &325006146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 325006144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2bccc210fb204c4db4f239479d633e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonState: 0
-  NOptions: 2
-  t: 0
-  tMax: 20
-  buttonLit: 1
-  blinking: 0
-  magnetDetectionEnabled: 1
-  childOn: {fileID: 1490658322}
-  childOff: {fileID: 389127435}
-  audio: {fileID: 0}
-  sndBeep: {fileID: 0}
 --- !u!65 &325006147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5311,6 +5289,28 @@ Halo:
     serializedVersion: 2
     rgba: 42436487
   m_Size: .119999997
+--- !u!114 &325006150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325006144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9277e47db72642b094c13a0f43ce0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonState: 0
+  NOptions: 2
+  t: 0
+  tMax: 20
+  buttonLit: 0
+  blinking: 0
+  magnetDetectionEnabled: 1
+  childOn: {fileID: 1490658322}
+  childOff: {fileID: 389127435}
+  audio: {fileID: 325006148}
+  sndBeep: {fileID: 8300000, guid: 7c06790ca8aca4ccd9905bdd57084776, type: 3}
 --- !u!1 &344140597
 GameObject:
   m_ObjectHideFlags: 0
@@ -8196,7 +8196,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 417734690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .219999999, z: .409999996}
+  m_LocalPosition: {x: 0, y: .219999999, z: .5}
   m_LocalScale: {x: .0500000007, y: .0500000007, z: .0500000007}
   m_Children: []
   m_Father: {fileID: 149662361}
@@ -27573,6 +27573,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b27ef82b1d27048608fa9c284b019797, type: 2}
+      propertyPath: m_TagString
+      value: ResetButton
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: b27ef82b1d27048608fa9c284b019797, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b27ef82b1d27048608fa9c284b019797, type: 2}
@@ -36638,7 +36642,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400008, guid: 441a0a311f9ba44119af445238337801, type: 2}
   m_PrefabInternal: {fileID: 1925069291}
   m_GameObject: {fileID: 1586787591}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
+  m_LocalRotation: {x: 0, y: .707106888, z: 0, w: .707106769}
   m_LocalPosition: {x: -.588064551, y: -.761807203, z: 1.75225807e-07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -38534,7 +38538,7 @@ Transform:
   m_GameObject: {fileID: 1650431164}
   m_LocalRotation: {x: .706433773, y: -.0308435354, z: .706433773, w: -.0308435895}
   m_LocalPosition: {x: -.00131758756, y: .276648641, z: -1.57877886}
-  m_LocalScale: {x: .0374304056, y: .0374304056, z: .0374304056}
+  m_LocalScale: {x: .0374304056, y: .0374304093, z: .0374304056}
   m_Children: []
   m_Father: {fileID: 2057753813}
   m_RootOrder: 3
@@ -49997,7 +50001,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1966384760}
-  m_LocalRotation: {x: .707106709, y: 2.30404638e-07, z: 2.30404638e-07, w: -.707106829}
+  m_LocalRotation: {x: .707106769, y: 2.30404652e-07, z: 2.30404652e-07, w: -.707106888}
   m_LocalPosition: {x: 0, y: .203627557, z: .805642068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -51384,6 +51388,7 @@ GameObject:
   - 4: {fileID: 2057753813}
   - 95: {fileID: 2057753815}
   - 114: {fileID: 2057753814}
+  - 114: {fileID: 2057753816}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -51451,6 +51456,17 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &2057753816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057753812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91dcc7ec3b854042960397a2bcfb347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2062879166
 GameObject:
   m_ObjectHideFlags: 0
