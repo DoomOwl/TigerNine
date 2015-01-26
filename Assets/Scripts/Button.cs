@@ -36,10 +36,11 @@ public class Button : MonoBehaviour
 				childOn.SetActive (true);
 				childOff.SetActive (false);
 
-				CardboardMagnetSensor.SetEnabled(magnetDetectionEnabled);
-				// Disable screen dimming:
-				Screen.sleepTimeout = SleepTimeout.NeverSleep;	
-
+		#if UNITY_ANDROID
+			CardboardMagnetSensor.SetEnabled(magnetDetectionEnabled);
+			// Disable screen dimming:
+			Screen.sleepTimeout = SleepTimeout.NeverSleep;	
+		#endif
 		}
 	
 		// Update is called once per frame
@@ -62,6 +63,7 @@ public class Button : MonoBehaviour
 						//(gameObject.GetComponent("Halo")).enabled = true;
 						//GetComponent (Halo).enabled = true;
 						//(gameObject.GetComponent("Halo") as Behaviour).enabled = true; 
+						#if UNITY_ANDROID
 						if (!magnetDetectionEnabled) return;
 						if (CardboardMagnetSensor.CheckIfWasClicked()) {
 							Press ();
@@ -69,17 +71,21 @@ public class Button : MonoBehaviour
 							Debug.Log("MAGNET STATE CHANGE!");  
 							CardboardMagnetSensor.ResetClick();
 					}
+						#endif
 
 
 
-						if (Input.GetButtonDown ("Fire1"))
+						if (Input.GetButtonDown ("Fire1")) {
 								Press ();
+				}
+						#if UNITY_ANDROID
 						for (var i = 0; i < Input.touchCount; ++i) {
 								if (Input.GetTouch (i).phase == TouchPhase.Began) {
 										Press ();
 										Handheld.Vibrate ();
-								} 
+								}
 						} 
+						#endif
 				} else {
 						//Behaviour h = (Behaviour)GetComponent("Halo");
 						h.enabled = false;

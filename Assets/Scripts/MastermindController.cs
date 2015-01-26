@@ -51,10 +51,11 @@ public class MastermindController : MonoBehaviour
 		
 		public Light[] roomLights;
 		
-
+		
 		//particles
 		public GameObject SmokeParticles;
-
+		public GameObject Engine;
+		
 		public HintDisplay UI;
 
 		// Use this for initialization
@@ -106,7 +107,8 @@ public class MastermindController : MonoBehaviour
 				
 				//Particle States
 				SmokeParticles.SetActive(false);
-			
+				Engine.SetActive(true);
+				
 		}
 		
 		AudioClip ImportSound(string name){
@@ -150,6 +152,7 @@ public class MastermindController : MonoBehaviour
 						OtherButtons[i].setLights ();
 					}
 					SmokeParticles.SetActive(true);
+					Engine.SetActive(false);
 				
 				breakTimer += Time.deltaTime;
 				
@@ -229,6 +232,7 @@ public class MastermindController : MonoBehaviour
 				
 				
 				if(NInactive == 0){
+					Engine.SetActive(true);
 					//turn on the lights
 					for(int i=0;i<roomLights.Length;i++){
 						roomLights[i].enabled = true;

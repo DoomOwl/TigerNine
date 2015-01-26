@@ -14,10 +14,11 @@ enum Fade {In, Out}
 
 function Start () {
     //renderer.material = material1;
+	#if UNITY_ANDROID
 	CardboardMagnetSensor.SetEnabled(magnetDetectionEnabled);
     // Disable screen dimming:
     Screen.sleepTimeout = SleepTimeout.NeverSleep;	
-
+	#endif
     guiObject.color.a = 0;
 
     yield WaitForSeconds(0.5);
@@ -81,6 +82,7 @@ function Start () {
 function Update () {
 	//var lerp = Mathf.PingPong(Time.time, duration) / duration;
 	//renderer.material.Lerp(material1, material2, lerp);
+	#if UNITY_ANDROID
 	if (!magnetDetectionEnabled) return;
    	if (CardboardMagnetSensor.CheckIfWasClicked()) {
 	  Application.LoadLevel(1);
@@ -88,12 +90,14 @@ function Update () {
       Debug.Log("MAGNET STATE CHANGE!");  
       CardboardMagnetSensor.ResetClick();
       }
-
+	#endif
 	
 	if(Input.anyKey) {
 		//yield FadeGUITexture(guiObject, fadeTime, Fade.Out);
 		Application.LoadLevel(1);
+		#if UNITY_ANDROID
 		Handheld.Vibrate();
+		#endif
 		Debug.Log("A key or mouse click has been detected");
 	}
 
