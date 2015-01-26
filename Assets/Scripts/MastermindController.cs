@@ -55,6 +55,9 @@ public class MastermindController : MonoBehaviour
 		//particles
 		public GameObject SmokeParticles;
 		public GameObject Engine;
+
+		//Game Objects
+		public GameObject Missiles;
 		
 		public HintDisplay UI;
 
@@ -105,9 +108,11 @@ public class MastermindController : MonoBehaviour
 				sndConfLoops[6] = aSources[2];
 				sndConfLoops[7] = null;
 				
-				//Particle States
+				//Object States
 				SmokeParticles.SetActive(false);
 				Engine.SetActive(true);
+
+				Missiles.SetActive(false);
 				
 		}
 		
@@ -232,7 +237,6 @@ public class MastermindController : MonoBehaviour
 				
 				
 				if(NInactive == 0){
-					Engine.SetActive(true);
 					//turn on the lights
 					for(int i=0;i<roomLights.Length;i++){
 						roomLights[i].enabled = true;
@@ -244,10 +248,24 @@ public class MastermindController : MonoBehaviour
 					if(NInactive <= UI.Icons.Length) UI.Icons[NInactive-1].color = Color.green;
 				}
 				
-				if(NInactive == 2){
+				if(NInactive == 1){
 					Radio.clip = sndRadioChatter;
 					Radio.Play();
 			    }
+				
+				if(NInactive == 2){
+					Engine.SetActive(true);
+				}
+				
+				if (NInactive == 3) {
+					Missiles.SetActive (true);
+					Missiles.animation.Play("missilePrep");
+				}
+				
+				//I'd rather have the missiles launch when you press the middle button
+				if (NInactive == 4) {
+					Missiles.animation.Play("missilesLaunch");
+				}
 				
 				//increase number of inactive buttons and re-randomize new state
 				if (NInactive < OtherButtons.Length)
