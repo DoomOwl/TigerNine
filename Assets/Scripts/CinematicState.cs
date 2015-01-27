@@ -3,10 +3,10 @@ using System.Collections;
 
 [System.Serializable]
 public class CinematicState {
-	public State State;
-	public float Duration;
-}
+	public enum Sequence {
+		Introduction, BreakingDown, Silence, Gameplay
+	}
 
-public enum State {
-	Introduction, BreakingDown, Silence, Gameplay
+	public Sequence SequenceName;
+	public float Duration;
 }

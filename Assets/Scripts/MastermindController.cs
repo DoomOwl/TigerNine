@@ -58,7 +58,7 @@ public class MastermindController : MonoBehaviour
 	{
 		Debug.Log(States.Length);
 		foreach(var s in States) {
-			Debug.Log(s.State);
+			Debug.Log(s.SequenceName);
 		}
 		CurrentState = States[_stateIndex];
 		// Setting origin for screen shake
@@ -74,8 +74,8 @@ public class MastermindController : MonoBehaviour
 			//computerized voice at end of each round
 		sndConfVoices = new AudioClip[8];
 		sndConfVoices[0] = ImportSound ("ambient/oneshot_1_auxiliary_power_online_comptuer_voice");
-		sndConfVoices[1] = ImportSound ("ambient/oneshot_2_computer_initialized_computer_voice");
-		sndConfVoices[2] = ImportSound ("ambient/oneshot_3_comm_link_online_computer_voice");
+		sndConfVoices[1] = ImportSound ("ambient/oneshot_3_comm_link_online_computer_voice");
+		sndConfVoices[2] = ImportSound ("ambient/oneshot_2_computer_initialized_computer_voice");
 		sndConfVoices[3] = ImportSound ("ambient/oneshot_4_main_reactor_online_computer_voice");
 		sndConfVoices[4] = ImportSound ("ambient/oneshot_5_weapons_online_computer_voice");
 		sndConfVoices[5] = ImportSound ("ambient/oneshot_6_navigation_system_configured_computer_voice");
@@ -119,7 +119,7 @@ public class MastermindController : MonoBehaviour
 		if(_stateIndex < States.Length) {
 			CurrentState = States[++_stateIndex];
 			StateTimer = 0;
-			if(CurrentState.State == State.Gameplay) {
+			if(CurrentState.SequenceName == CinematicState.Sequence.Gameplay) {
 				VerifyButton.AllowInteraction = true;
 				foreach(Button b in OtherButtons)
 					b.AllowInteraction = true;
@@ -139,14 +139,14 @@ public class MastermindController : MonoBehaviour
 
 		StateTimer += Time.deltaTime;
 		
-		switch(CurrentState.State) {
-			case State.Introduction:
+		switch(CurrentState.SequenceName) {
+			case CinematicState.Sequence.Introduction:
 				for(int i=0;i<OtherButtons.Length;i++) {
 					OtherButtons[i].buttonLit = true; // EVAL: Does this need to be done every frame?
 					OtherButtons[i].setLights ();
 				}
 				break;
-			case State.BreakingDown:
+			case CinematicState.Sequence.BreakingDown:
 				//screen shake
 				Vector3 newPos = new Vector3(
 					Origin.x+Random.Range (-0.01F,0.01F),
@@ -181,7 +181,7 @@ public class MastermindController : MonoBehaviour
 					transform.position = new Vector3(Origin.x,Origin.y,transform.position.z);
 				}
 				break;
-			case State.Silence:
+			case CinematicState.Sequence.Silence:
 				if(StateTimer >= CurrentState.Duration) {
 					VerifyButton.blinking = true;
 				}
@@ -195,7 +195,7 @@ public class MastermindController : MonoBehaviour
 
 	void VerifyState (int pressedButtonState)
 	{
-		if(CurrentState.State != State.Gameplay) return;
+		if(CurrentState.SequenceName != CinematicState.Sequence.Gameplay) return;
 
 		VerifyButton.ButtonState = 0;
 		Debug.Log ("Verifying state:");

@@ -732,8 +732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 1647282207}
   Icons:
-  - {fileID: 169008163}
   - {fileID: 432586404}
+  - {fileID: 169008163}
   - {fileID: 1637395471}
   - {fileID: 564185940}
   - {fileID: 126717316}
@@ -3758,7 +3758,7 @@ Transform:
   m_PrefabInternal: {fileID: 1378173359}
   m_GameObject: {fileID: 169008161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0756751895, y: -.0499370098, z: .0635887384}
+  m_LocalPosition: {x: -.0456751883, y: -.0499370098, z: .0635887384}
   m_LocalScale: {x: .125, y: .125, z: .125}
   m_Children: []
   m_Father: {fileID: 1037036319}
@@ -9768,7 +9768,7 @@ Transform:
   m_PrefabInternal: {fileID: 1378173359}
   m_GameObject: {fileID: 432586402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0456212685, y: -.0499370098, z: .0635887384}
+  m_LocalPosition: {x: -.0756212696, y: -.0499370098, z: .0635887384}
   m_LocalScale: {x: .125, y: .125, z: .125}
   m_Children: []
   m_Father: {fileID: 1037036319}
@@ -31801,6 +31801,14 @@ Prefab:
     - target: {fileID: 100016, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
       propertyPath: m_Name
       value: Hint Text - Android
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.0456751883
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.0756212696
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}

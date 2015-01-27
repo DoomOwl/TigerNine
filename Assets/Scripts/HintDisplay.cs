@@ -22,14 +22,14 @@ public class HintDisplay : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-			switch(Controller.CurrentState.State) {
-				case State.BreakingDown:
+			switch(Controller.CurrentState.SequenceName) {
+				case CinematicState.Sequence.BreakingDown:
 					for(int i=0;i<Icons.Length;i++){
 						Icons[i].enabled = Random.Range (0,2) == 0;
 						Icons[i].color = Random.Range (0,2) == 0 ? Color.green : Color.red;
 					}
 					break;
-				case State.Silence:
+				case CinematicState.Sequence.Silence:
 					for(int i=0;i<Icons.Length;i++){
 						Icons[i].enabled = false;
 						Icons[i].color = Color.red;
