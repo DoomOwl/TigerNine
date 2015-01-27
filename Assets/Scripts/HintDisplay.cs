@@ -22,18 +22,19 @@ public class HintDisplay : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-			if(Controller.Introduction){
-			
-			}else if(Controller.BreakingDown){
-				for(int i=0;i<Icons.Length;i++){
-					Icons[i].enabled = Random.Range (0,2) == 0;
-					Icons[i].color = Random.Range (0,2) == 0 ? Color.green : Color.red;
-				}
-			} else if (Controller.Silence){
-				for(int i=0;i<Icons.Length;i++){
-					Icons[i].enabled = false;
-					Icons[i].color = Color.red;
-				}
+			switch(Controller.CurrentState.State) {
+				case State.BreakingDown:
+					for(int i=0;i<Icons.Length;i++){
+						Icons[i].enabled = Random.Range (0,2) == 0;
+						Icons[i].color = Random.Range (0,2) == 0 ? Color.green : Color.red;
+					}
+					break;
+				case State.Silence:
+					for(int i=0;i<Icons.Length;i++){
+						Icons[i].enabled = false;
+						Icons[i].color = Color.red;
+					}
+					break;
 			}
 		}
 

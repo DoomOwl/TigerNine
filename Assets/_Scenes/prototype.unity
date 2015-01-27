@@ -568,15 +568,11 @@ MonoBehaviour:
   Radio: {fileID: 641505240}
   sndRadioChatter: {fileID: 8300000, guid: 60a78217ab2774588ae0384d5840c6a7, type: 3}
   Fader: {fileID: 43858072}
-  Introduction: 1
-  introTimer: 0
-  introLimit: 50.5
-  BreakingDown: 0
-  breakTimer: 0
-  breakTimerLimit: 10.3000002
-  Silence: 0
-  silenceTimer: 0
-  silenceLimit: 7.5
+  CurrentState:
+    State: 0
+    Duration: 0
+  StateTimer: 0
+  States: []
   roomLights:
   - {fileID: 965235192}
   - {fileID: 672737188}
@@ -655,7 +651,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 21
+  m_RootOrder: 17
 --- !u!114 &43858072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,6 +1010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 0
@@ -2481,15 +2478,19 @@ MonoBehaviour:
   Radio: {fileID: 641505240}
   sndRadioChatter: {fileID: 8300000, guid: 60a78217ab2774588ae0384d5840c6a7, type: 3}
   Fader: {fileID: 43858072}
-  Introduction: 1
-  introTimer: 0
-  introLimit: 50.5
-  BreakingDown: 0
-  breakTimer: 0
-  breakTimerLimit: 10.3000002
-  Silence: 0
-  silenceTimer: 0
-  silenceLimit: 7.5
+  CurrentState:
+    State: 0
+    Duration: 0
+  StateTimer: 0
+  States:
+  - State: 0
+    Duration: 50.5
+  - State: 1
+    Duration: 10.3000002
+  - State: 2
+    Duration: 7.5
+  - State: 3
+    Duration: 0
   roomLights:
   - {fileID: 965235192}
   - {fileID: 672737188}
@@ -5388,6 +5389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 0
@@ -5412,7 +5414,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!82 &295965976
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5533,7 +5534,7 @@ Transform:
   - {fileID: 1490658323}
   - {fileID: 1722953689}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 22
+  m_RootOrder: 18
 --- !u!65 &325006147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5631,6 +5632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 0
@@ -10038,6 +10040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 0
@@ -14309,7 +14312,7 @@ Transform:
   m_LocalScale: {x: .230000004, y: .0399999991, z: 1}
   m_Children: []
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 20
+  m_RootOrder: 16
 --- !u!114 &641505239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16151,7 +16154,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!23 &781374409
 Renderer:
   m_ObjectHideFlags: 0
@@ -16210,7 +16212,7 @@ Transform:
   - {fileID: 1476991256}
   - {fileID: 2119077289}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 12
+  m_RootOrder: 19
 --- !u!1 &807348791
 GameObject:
   m_ObjectHideFlags: 0
@@ -17431,7 +17433,7 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 17
+  m_RootOrder: 22
 --- !u!1 &824762408
 GameObject:
   m_ObjectHideFlags: 0
@@ -19863,7 +19865,8 @@ Prefab:
       propertyPath: m_Name
       value: explosion_control_panel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400002, guid: a6d58f54ce5934781962a4f887e834f3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a6d58f54ce5934781962a4f887e834f3, type: 2}
   m_RootGameObject: {fileID: 1704987896}
   m_IsPrefabParent: 0
@@ -22565,7 +22568,7 @@ Transform:
   - {fileID: 1350825354}
   - {fileID: 50195967}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 18
+  m_RootOrder: 12
 --- !u!1 &1040639248
 GameObject:
   m_ObjectHideFlags: 0
@@ -24004,7 +24007,7 @@ Transform:
   - {fileID: 1799619569}
   - {fileID: 739559088}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 19
+  m_RootOrder: 15
 --- !u!95 &1109533399
 Animator:
   serializedVersion: 3
@@ -24020,7 +24023,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1128060224
 GameObject:
   m_ObjectHideFlags: 0
@@ -24126,6 +24128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 1
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 0
@@ -31982,6 +31985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 0
@@ -32046,7 +32050,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!82 &1435899944
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36764,7 +36767,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1510426467
 Transform:
   m_ObjectHideFlags: 0
@@ -36793,6 +36795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 1
@@ -37200,6 +37203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 0
@@ -37323,7 +37327,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1587805019
 GameObject:
   m_ObjectHideFlags: 0
@@ -39329,15 +39332,19 @@ MonoBehaviour:
   Radio: {fileID: 641505240}
   sndRadioChatter: {fileID: 8300000, guid: 60a78217ab2774588ae0384d5840c6a7, type: 3}
   Fader: {fileID: 43858072}
-  Introduction: 1
-  introTimer: 0
-  introLimit: 50.5
-  BreakingDown: 0
-  breakTimer: 0
-  breakTimerLimit: 10.3000002
-  Silence: 0
-  silenceTimer: 0
-  silenceLimit: 7.5
+  CurrentState:
+    State: 0
+    Duration: 0
+  StateTimer: 0
+  States:
+  - State: 0
+    Duration: 50.5
+  - State: 1
+    Duration: 10.3000002
+  - State: 2
+    Duration: 7.5
+  - State: 3
+    Duration: 0
   roomLights:
   - {fileID: 965235192}
   - {fileID: 672737188}
@@ -39431,7 +39438,7 @@ Transform:
   m_GameObject: {fileID: 1650431164}
   m_LocalRotation: {x: .706433773, y: -.0308435354, z: .706433773, w: -.0308435895}
   m_LocalPosition: {x: -.00131758756, y: .276648641, z: -1.57877886}
-  m_LocalScale: {x: .0374304056, y: .0374304093, z: .0374304056}
+  m_LocalScale: {x: .0374304056, y: .0374304056, z: .0374304056}
   m_Children: []
   m_Father: {fileID: 2057753813}
   m_RootOrder: 4
@@ -41078,7 +41085,6 @@ GameObject:
   - 4: {fileID: 1704987897}
   - 198: {fileID: 1704987901}
   - 199: {fileID: 1704987900}
-  - 114: {fileID: 1704987899}
   - 82: {fileID: 1704987898}
   m_Layer: 0
   m_Name: explosion_control_panel
@@ -41161,18 +41167,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &1704987899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: a6d58f54ce5934781962a4f887e834f3,
-    type: 2}
-  m_PrefabInternal: {fileID: 930673922}
-  m_GameObject: {fileID: 1704987896}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3069907128af34efca9780c9aea75eb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!199 &1704987900
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -42349,7 +42343,7 @@ Transform:
   - {fileID: 52145884}
   - {fileID: 6114567}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 16
+  m_RootOrder: 21
 --- !u!1 &1722953688
 GameObject:
   m_ObjectHideFlags: 0
@@ -42395,7 +42389,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!23 &1722953691
 Renderer:
   m_ObjectHideFlags: 0
@@ -47159,6 +47152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 1
@@ -47208,7 +47202,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1832393994
 Transform:
   m_ObjectHideFlags: 0
@@ -49619,7 +49612,7 @@ Transform:
   - {fileID: 1927568996}
   - {fileID: 970543519}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 15
+  m_RootOrder: 20
 --- !u!1 &1904792486
 GameObject:
   m_ObjectHideFlags: 0
@@ -53703,7 +53696,6 @@ GameObject:
   - 4: {fileID: 2057753813}
   - 95: {fileID: 2057753815}
   - 114: {fileID: 2057753814}
-  - 114: {fileID: 2057753816}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -53733,17 +53725,17 @@ Transform:
   - {fileID: 1557041512}
   - {fileID: 376760679}
   - {fileID: 369859989}
-  - {fileID: 805148355}
+  - {fileID: 1037036319}
   - {fileID: 312002722}
   - {fileID: 1887889678}
-  - {fileID: 1901980659}
-  - {fileID: 1716822906}
-  - {fileID: 821242172}
-  - {fileID: 1037036319}
   - {fileID: 1109533398}
   - {fileID: 641505238}
   - {fileID: 43858071}
   - {fileID: 325006145}
+  - {fileID: 805148355}
+  - {fileID: 1901980659}
+  - {fileID: 1716822906}
+  - {fileID: 821242172}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &2057753814
@@ -53773,18 +53765,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &2057753816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2057753812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c91dcc7ec3b854042960397a2bcfb347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2062879166
 GameObject:
   m_ObjectHideFlags: 0
