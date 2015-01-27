@@ -159,7 +159,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
+  m_LocalRotation: {x: 0, y: .707106888, z: 0, w: .707106769}
   m_LocalPosition: {x: -.588064551, y: -.761807203, z: 1.75225807e-07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -271,8 +271,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .100000001, z: .200000003}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .129999995, y: .189999998, z: .200000003}
+  m_Center: {x: 0, y: -.00999999978, z: 0}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -393,10 +393,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 0
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 100004}
   childOff: {fileID: 100006}
   audio: {fileID: 8200000}

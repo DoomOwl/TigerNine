@@ -216,7 +216,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .0500000007, z: .25}
+  m_Size: {x: .159999996, y: .0500000007, z: .25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8200000
 AudioSource:
@@ -338,10 +338,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonState: 0
   NOptions: 2
+  AllowInteraction: 0
   t: 0
   tMax: 20
   buttonLit: 1
   blinking: 0
+  magnetDetectionEnabled: 1
   childOn: {fileID: 100000}
   childOff: {fileID: 100002}
   audio: {fileID: 8200000}
