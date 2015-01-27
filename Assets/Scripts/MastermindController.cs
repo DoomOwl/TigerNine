@@ -51,15 +51,9 @@ public class MastermindController : MonoBehaviour
 	//Game Objects
 	public GameObject Missiles;
 	
-	public HintDisplay UI;
-
 	// Use this for initialization
 	void Start ()
 	{
-		Debug.Log(States.Length);
-		foreach(var s in States) {
-			Debug.Log(s.SequenceName);
-		}
 		CurrentState = States[_stateIndex];
 		// Setting origin for screen shake
 		Origin = new Vector2(transform.position.x,transform.position.y);
@@ -133,7 +127,9 @@ public class MastermindController : MonoBehaviour
 	void Update ()
 	{
 		//keyboard controls for debugging
-		if(Input.GetKeyUp ("n")) {
+		if(Input.GetKeyUp("m")) {
+			AdvanceState();
+		} else if(Input.GetKeyUp ("n")) {
 			StateValid ();
 		}
 
@@ -203,9 +199,9 @@ public class MastermindController : MonoBehaviour
 		for (int i = 0; i < OtherButtons.Length; ++i) {
 			var curButton = OtherButtons [i];
 			if (curButton.ButtonState < ValidState [i])
-			++NLow;
+				++NLow;
 			else if (curButton.ButtonState > ValidState [i])
-			++NHigh;
+				++NHigh;
 		}
 		Debug.Log ("NLow: " + NLow + " | NHigh: " + NHigh);
 		if(OnValidate != null) OnValidate (NLow, NHigh);
@@ -213,8 +209,6 @@ public class MastermindController : MonoBehaviour
 		if (IsStateValid) {
 			audio.PlayOneShot (sndRight,.5F);
 			StateValid ();
-			if (OnStateValid != null)
-			OnStateValid (NInactive);
 		} else {
 			audio.PlayOneShot (sndWrong);
 		}
@@ -224,24 +218,22 @@ public class MastermindController : MonoBehaviour
 	{
 		Debug.Log ("State is valid!");
 
+		if (OnStateValid != null)
+			OnStateValid (NInactive);
+
 		audio.PlayOneShot(sndConfVoices[NInactive]);
-		if(sndConfBG[NInactive] != null){
+		if(sndConfBG[NInactive] != null) {
 			audio.PlayOneShot(sndConfBG[NInactive]);
 		}
-		if(sndConfLoops[NInactive] != null){
+		if(sndConfLoops[NInactive] != null) {
 			sndConfLoops[NInactive].Play ();
 		}
 
 		if(NInactive == 0){
-				//turn on the lights
-			for(int i=0;i<roomLights.Length;i++){
+			//turn on the lights
+			for(int i=0;i<roomLights.Length;i++) {
 				roomLights[i].enabled = true;
 			}
-			for(int i=0;i<UI.Icons.Length;i++){
-				UI.Icons[i].enabled = true;
-			}
-		} else {
-			if(NInactive <= UI.Icons.Length) UI.Icons[NInactive-1].color = Color.green;
 		}
 
 		if(NInactive == 1){
@@ -265,7 +257,7 @@ public class MastermindController : MonoBehaviour
 
 			//increase number of inactive buttons and re-randomize new state
 		if (NInactive < OtherButtons.Length)
-		NInactive++;
+			NInactive++;
 		else {
 			Debug.Log ("You Win!");
 			Fader.transform.position = transform.position;
@@ -273,7 +265,6 @@ public class MastermindController : MonoBehaviour
 		}
 
 		RandomizeValidState ();
-
 	}
 
 	void RandomizeValidState ()

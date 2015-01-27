@@ -569,7 +569,7 @@ MonoBehaviour:
   sndRadioChatter: {fileID: 8300000, guid: 60a78217ab2774588ae0384d5840c6a7, type: 3}
   Fader: {fileID: 43858072}
   CurrentState:
-    State: 0
+    SequenceName: 0
     Duration: 0
   StateTimer: 0
   States: []
@@ -582,7 +582,6 @@ MonoBehaviour:
   SmokeParticles: {fileID: 1948994396}
   Engine: {fileID: 805148354}
   Missiles: {fileID: 0}
-  UI: {fileID: 1350825355}
 --- !u!1 &31396860
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +650,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 15
+  m_RootOrder: 18
 --- !u!114 &43858072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,17 +2478,17 @@ MonoBehaviour:
   sndRadioChatter: {fileID: 8300000, guid: 60a78217ab2774588ae0384d5840c6a7, type: 3}
   Fader: {fileID: 43858072}
   CurrentState:
-    State: 0
+    SequenceName: 0
     Duration: 0
   StateTimer: 0
   States:
-  - State: 0
+  - SequenceName: 0
     Duration: 50.5
-  - State: 1
+  - SequenceName: 0
     Duration: 10.3000002
-  - State: 2
+  - SequenceName: 0
     Duration: 7.5
-  - State: 3
+  - SequenceName: 0
     Duration: 0
   roomLights:
   - {fileID: 965235192}
@@ -2500,7 +2499,6 @@ MonoBehaviour:
   SmokeParticles: {fileID: 1948994396}
   Engine: {fileID: 805148354}
   Missiles: {fileID: 1557041511}
-  UI: {fileID: 1350825355}
 --- !u!82 &149662367
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5510,7 +5508,7 @@ Transform:
   - {fileID: 1490658323}
   - {fileID: 1722953689}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 16
+  m_RootOrder: 19
 --- !u!65 &325006147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14200,7 +14198,7 @@ Transform:
   m_LocalScale: {x: .230000004, y: .0399999991, z: 1}
   m_Children: []
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 12
+  m_RootOrder: 17
 --- !u!114 &641505239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16100,7 +16098,7 @@ Transform:
   - {fileID: 1476991256}
   - {fileID: 2119077289}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 17
+  m_RootOrder: 20
 --- !u!1 &807348791
 GameObject:
   m_ObjectHideFlags: 0
@@ -17321,7 +17319,7 @@ Transform:
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 20
+  m_RootOrder: 12
 --- !u!1 &824762408
 GameObject:
   m_ObjectHideFlags: 0
@@ -22544,7 +22542,7 @@ Transform:
   - {fileID: 1350825354}
   - {fileID: 50195967}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 21
+  m_RootOrder: 15
 --- !u!1 &1040639248
 GameObject:
   m_ObjectHideFlags: 0
@@ -23983,7 +23981,7 @@ Transform:
   - {fileID: 1799619569}
   - {fileID: 739559088}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 22
+  m_RootOrder: 16
 --- !u!95 &1109533399
 Animator:
   serializedVersion: 3
@@ -31486,7 +31484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1350825354
 Transform:
   m_ObjectHideFlags: 0
@@ -31513,8 +31511,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 149662366}
   Icons:
-  - {fileID: 169008163}
   - {fileID: 432586404}
+  - {fileID: 169008163}
   - {fileID: 1637395471}
   - {fileID: 564185940}
   - {fileID: 126717316}
@@ -31773,11 +31771,11 @@ Prefab:
     - target: {fileID: 11400000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
       propertyPath: Icons.Array.data[0]
       value: 
-      objectReference: {fileID: 169008163}
+      objectReference: {fileID: 432586404}
     - target: {fileID: 11400000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
       propertyPath: Icons.Array.data[1]
       value: 
-      objectReference: {fileID: 432586404}
+      objectReference: {fileID: 169008163}
     - target: {fileID: 11400000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
       propertyPath: Icons.Array.data[2]
       value: 
@@ -31809,6 +31807,10 @@ Prefab:
     - target: {fileID: 400012, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
       propertyPath: m_LocalPosition.x
       value: -.0756212696
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
@@ -39317,17 +39319,17 @@ MonoBehaviour:
   sndRadioChatter: {fileID: 8300000, guid: 60a78217ab2774588ae0384d5840c6a7, type: 3}
   Fader: {fileID: 43858072}
   CurrentState:
-    State: 0
+    SequenceName: 0
     Duration: 0
   StateTimer: 0
   States:
-  - State: 0
+  - SequenceName: 0
     Duration: 50.5
-  - State: 1
+  - SequenceName: 1
     Duration: 10.3000002
-  - State: 2
+  - SequenceName: 2
     Duration: 7.5
-  - State: 3
+  - SequenceName: 3
     Duration: 0
   roomLights:
   - {fileID: 965235192}
@@ -39338,7 +39340,6 @@ MonoBehaviour:
   SmokeParticles: {fileID: 1948994396}
   Engine: {fileID: 805148354}
   Missiles: {fileID: 1557041511}
-  UI: {fileID: 1350825355}
 --- !u!1 &1647897362
 GameObject:
   m_ObjectHideFlags: 0
@@ -42327,7 +42328,7 @@ Transform:
   - {fileID: 52145884}
   - {fileID: 6114567}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 19
+  m_RootOrder: 22
 --- !u!1 &1722953688
 GameObject:
   m_ObjectHideFlags: 0
@@ -49644,7 +49645,7 @@ Transform:
   - {fileID: 1927568996}
   - {fileID: 970543519}
   m_Father: {fileID: 2057753813}
-  m_RootOrder: 18
+  m_RootOrder: 21
 --- !u!1 &1904792486
 GameObject:
   m_ObjectHideFlags: 0
@@ -53757,17 +53758,17 @@ Transform:
   - {fileID: 1557041512}
   - {fileID: 376760679}
   - {fileID: 369859989}
-  - {fileID: 641505238}
+  - {fileID: 821242172}
   - {fileID: 312002722}
   - {fileID: 1887889678}
+  - {fileID: 1037036319}
+  - {fileID: 1109533398}
+  - {fileID: 641505238}
   - {fileID: 43858071}
   - {fileID: 325006145}
   - {fileID: 805148355}
   - {fileID: 1901980659}
   - {fileID: 1716822906}
-  - {fileID: 821242172}
-  - {fileID: 1037036319}
-  - {fileID: 1109533398}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &2057753814
