@@ -18,6 +18,9 @@ public class Button : MonoBehaviour
 	public GameObject childOn;
 	public GameObject childOff;
 
+	//scripts
+	public PlayerController playerController;
+
 		//audio variables
 	public AudioSource audio; 
 	public AudioClip sndBeep;
@@ -75,8 +78,12 @@ public class Button : MonoBehaviour
 #endif
 				if (Input.GetButtonDown ("Fire1")) {
 					Press ();
+					if (gameObject.tag == "FireButton") {
+						playerController.ShotFire();
+					}
 				}
-#if UNITY_ANDROID
+			
+			#if UNITY_ANDROID
 				for (var i = 0; i < Input.touchCount; ++i) {
 					if (Input.GetTouch (i).phase == TouchPhase.Began) {
 						Press ();

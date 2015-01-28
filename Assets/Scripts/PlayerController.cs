@@ -8,8 +8,8 @@ public class Boundary {
 
 public class PlayerController : MonoBehaviour {
 
-	public float speed;
-	public float tilt;
+	//public float speed;
+	//public float tilt;
 	public Boundary boundary;
 
 	public GameObject shot;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 
 	private float nextFire = 0.0f;
 
+	/*
 	void FixedUpdate () {
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
@@ -36,13 +37,14 @@ public class PlayerController : MonoBehaviour {
 
 
 	}
-	void Update () {
-		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
+	*/
+	public void ShotFire () {
+		if (Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
-			GetComponent<AudioSource>().Play ();
+			//GetComponent<AudioSource>().Play ();
 		}
-
+		/*
 		if (Input.GetKeyDown (KeyCode.RightShift) || Input.GetKeyUp (KeyCode.LeftShift)) {
 			tilt = tilt *4;
 			speed = speed *1.5f;
@@ -51,5 +53,6 @@ public class PlayerController : MonoBehaviour {
 			tilt = tilt/4;
 			speed = speed *0.6666667f;
 		}
+		*/
 	}
 }

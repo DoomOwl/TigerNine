@@ -50,6 +50,7 @@ public class MastermindController : MonoBehaviour
 
 	//Game Objects
 	public GameObject Missiles;
+	public GameObject ShotSpawn;
 	
 	// Use this for initialization
 	void Start ()
@@ -102,6 +103,8 @@ public class MastermindController : MonoBehaviour
 		SmokeParticles.SetActive(false);
 		Engine.SetActive(true);
 
+		ShotSpawn = GameObject.Find ("Shot Spawn");
+		ShotSpawn.SetActive (true);
 		Missiles.SetActive(false);
 	}
 	
@@ -160,6 +163,7 @@ public class MastermindController : MonoBehaviour
 				}
 				SmokeParticles.SetActive(true);
 				Engine.SetActive(false);
+				ShotSpawn.SetActive (false);
 				
 				if(StateTimer >= CurrentState.Duration) {
 					SmokeParticles.SetActive(false);
@@ -191,7 +195,9 @@ public class MastermindController : MonoBehaviour
 
 	void VerifyState (int pressedButtonState)
 	{
+		//making the VerifyButton usable at start
 		if(CurrentState.SequenceName != CinematicState.Sequence.Gameplay) return;
+		//VerifyButton.AllowInteraction = true;
 
 		VerifyButton.ButtonState = 0;
 		Debug.Log ("Verifying state:");
@@ -248,6 +254,7 @@ public class MastermindController : MonoBehaviour
 		if (NInactive == 3) {
 			Missiles.SetActive (true);
 			Missiles.animation.Play("missilePrep");
+			ShotSpawn.SetActive (true);
 		}
 
 			//I'd rather have the missiles launch when you press the middle button

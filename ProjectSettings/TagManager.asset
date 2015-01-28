@@ -4,9 +4,13 @@
 TagManager:
   tags:
   - button
-  - 
+  - FireButton
   - Enemy
   - ResetButton
+  - 
+  - Boundary
+  - MoveLeft
+  - MoveRight
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
