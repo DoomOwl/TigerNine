@@ -69,7 +69,7 @@ public class MastermindController : MonoBehaviour
 
 		CurrentState = States[_stateIndex];
 		// Setting origin for screen shake
-		Origin = new Vector2(transform.position.x,transform.position.y);
+		Origin = new Vector2(transform.localPosition.x,transform.localPosition.y);
 
 		VerifyButton.OnPressed += VerifyState;
 		RandomizeValidState ();
@@ -163,9 +163,9 @@ public class MastermindController : MonoBehaviour
 				Vector3 newPos = new Vector3(
 					Origin.x+Random.Range (-0.01F,0.01F),
 					Origin.y+Random.Range (-0.01F,0.01F),
-					transform.position.z
+					transform.localPosition.z
 					);
-				transform.position = newPos;
+				transform.localPosition = newPos;
 
 				for(int i=0;i<roomLights.Length;i++){
 					roomLights[i].enabled = Random.Range (0,10) <= 2;
@@ -196,7 +196,7 @@ public class MastermindController : MonoBehaviour
 						OtherButtons[i].setLights ();
 					}
 					
-					transform.position = new Vector3(Origin.x,Origin.y,transform.position.z);
+					transform.localPosition = new Vector3(Origin.x,Origin.y,transform.localPosition.z);
 				}
 				break;
 			case CinematicState.Sequence.Silence:
@@ -270,10 +270,10 @@ public class MastermindController : MonoBehaviour
 			RightButton.AllowInteraction = true;
 			gameController.spawnWait = 2;
 			gameController.hazardCount = 10;
+			Engine.SetActive(true);
 		}
 		
 		if(NInactive == 7){
-			Engine.SetActive(true);
 			gameController.spawnWait = 1.5f;
 			gameController.hazardCount = 12;
 		}
@@ -297,6 +297,7 @@ public class MastermindController : MonoBehaviour
 			Debug.Log ("You Win!");
 			gameController.GameWin();
 			GameEnd ();
+
 		}
 
 		RandomizeValidState ();

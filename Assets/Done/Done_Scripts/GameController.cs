@@ -20,9 +20,13 @@ public class GameController : MonoBehaviour
 	private bool restart;
 	private int score;
 	private int totalAsteroidScore;
+
+	private int framesThisScene;
+	private int framesAtStart;
 	
 	void Start ()
 	{
+		framesAtStart = Time.frameCount;
 		gameOver = false;
 		restart = false;
 		restartText.text = "";
@@ -37,6 +41,7 @@ public class GameController : MonoBehaviour
 	
 	void Update ()
 	{
+		framesThisScene = Time.frameCount - framesAtStart;
 		//UpdateScore ();
 		//Debug.Log (score + " " + asteroidScore);
 
@@ -46,7 +51,7 @@ public class GameController : MonoBehaviour
 			{
 				Application.LoadLevel (Application.loadedLevel);
 				//score = 0;
-				UpdateScore();
+				//UpdateScore();
 				totalAsteroidScore = 0;
 				//something that resets all the buttons
 			}
@@ -93,7 +98,7 @@ public class GameController : MonoBehaviour
 	
 	void UpdateScore ()
 	{
-		score = 15000 - Time.frameCount;
+		score = 20000 - framesThisScene; 
 		//asteroidScore = ?
 		scoreText.text = "Score: " + score + " and an asteroid bonus of " + totalAsteroidScore + "" ;
 	}
@@ -102,13 +107,24 @@ public class GameController : MonoBehaviour
 	{
 			scoreText.enabled = true;
 			winText.enabled = true;
-			StopCoroutine (SpawnWaves());
-			
+			gameOverText.enabled = false;
+			UpdateScore ();
+			StopCoroutine (SpawnWaves ());
 	}
-	
+
+	public void LoadCredits()
+	{
+		if (winText.enabled == true) {
+			Application.LoadLevel (2);
+			Debug.Log ("Loading loading loading!");
+		}
+	}
+		
 	public void GameOver ()
 	{
 		gameOverText.text = "Game Over!";
 		gameOver = true;
+		scoreText.enabled = false;
+		winText.enabled = false;
 		StopCoroutine (SpawnWaves());}
 }

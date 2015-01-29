@@ -144,15 +144,31 @@ Prefab:
     - target: {fileID: 11452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
       propertyPath: mc
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 149662366}
     - target: {fileID: 152006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 152006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
       propertyPath: m_Name
       value: Fader -android
       objectReference: {fileID: 0}
+    - target: {fileID: 452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
+      propertyPath: gc
+      value: 
+      objectReference: {fileID: 1508748265}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
   m_RootGameObject: {fileID: 1606484921}
@@ -586,7 +602,7 @@ Transform:
   m_GameObject: {fileID: 43858070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .239999995, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children: []
   m_Father: {fileID: 2057753813}
   m_RootOrder: 19
@@ -605,6 +621,7 @@ MonoBehaviour:
   fadeSpeed: .699999988
   sceneEnding: 0
   guiTexture: {fileID: 43858073}
+  gc: {fileID: 1508748265}
   mc: {fileID: 1647282207}
 --- !u!131 &43858073
 GUITexture:
@@ -13148,7 +13165,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 172110, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: BTN
       objectReference: {fileID: 0}
     - target: {fileID: 11472158, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
       propertyPath: playerController
@@ -13201,6 +13218,34 @@ Prefab:
     - target: {fileID: 6572154, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
       propertyPath: m_Size.z
       value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 172068, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
+      propertyPath: m_TagString
+      value: BTN
+      objectReference: {fileID: 0}
+    - target: {fileID: 172096, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
+      propertyPath: m_TagString
+      value: BTN
+      objectReference: {fileID: 0}
+    - target: {fileID: 172152, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
+      propertyPath: m_TagString
+      value: BTN
+      objectReference: {fileID: 0}
+    - target: {fileID: 172162, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
+      propertyPath: m_TagString
+      value: BTN
+      objectReference: {fileID: 0}
+    - target: {fileID: 172136, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
+      propertyPath: m_TagString
+      value: BTN
+      objectReference: {fileID: 0}
+    - target: {fileID: 172090, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
+      propertyPath: m_TagString
+      value: BTN
+      objectReference: {fileID: 0}
+    - target: {fileID: 172084, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
+      propertyPath: m_TagString
+      value: BTN
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e567d295f3876b4faf62aedbe543ae0, type: 2}
@@ -19094,7 +19139,7 @@ GameObject:
   - 82: {fileID: 634468270}
   m_Layer: 0
   m_Name: ButtonR3
-  m_TagString: button
+  m_TagString: BTN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27816,7 +27861,7 @@ Transform:
   m_PrefabInternal: {fileID: 2044306842}
   m_GameObject: {fileID: 910743071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.73999929, y: 0, z: 27.7900009}
+  m_LocalPosition: {x: 4.73999977, y: -.0810000002, z: 27.7900009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1990183718}
@@ -35090,7 +35135,7 @@ GameObject:
   - 82: {fileID: 1226032779}
   m_Layer: 0
   m_Name: ButtonSlider
-  m_TagString: Untagged
+  m_TagString: BTN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35314,7 +35359,7 @@ GameObject:
   - 65: {fileID: 1239744888}
   m_Layer: 0
   m_Name: ButtonSwitch
-  m_TagString: Untagged
+  m_TagString: BTN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35539,7 +35584,7 @@ GameObject:
   - 82: {fileID: 1244109810}
   m_Layer: 0
   m_Name: ButtonThrottle
-  m_TagString: Untagged
+  m_TagString: BTN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35699,7 +35744,7 @@ GameObject:
   - 65: {fileID: 1248687935}
   m_Layer: 0
   m_Name: ButtonVerify
-  m_TagString: Untagged
+  m_TagString: BTN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49771,6 +49816,22 @@ Prefab:
       propertyPath: m_Name
       value: Fader -web
       objectReference: {fileID: 0}
+    - target: {fileID: 452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452006, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
+      propertyPath: gc
+      value: 
+      objectReference: {fileID: 1508748265}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c76ea2d5200d449bb09d163eae9637f, type: 2}
   m_RootGameObject: {fileID: 43858070}
@@ -50393,7 +50454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1606484922
 Transform:
   m_ObjectHideFlags: 0
@@ -50402,7 +50463,7 @@ Transform:
   m_GameObject: {fileID: 1606484921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .239999995, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children: []
   m_Father: {fileID: 2057753813}
   m_RootOrder: 20
@@ -50421,7 +50482,8 @@ MonoBehaviour:
   fadeSpeed: .699999988
   sceneEnding: 0
   guiTexture: {fileID: 1606484924}
-  mc: {fileID: 0}
+  gc: {fileID: 1508748265}
+  mc: {fileID: 149662366}
 --- !u!131 &1606484924
 GUITexture:
   m_ObjectHideFlags: 0
@@ -51975,7 +52037,7 @@ GameObject:
   - 82: {fileID: 1644239097}
   m_Layer: 0
   m_Name: ButtonDial
-  m_TagString: Untagged
+  m_TagString: BTN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59218,7 +59280,7 @@ GameObject:
   - 82: {fileID: 1792202132}
   m_Layer: 0
   m_Name: ButtonPlug
-  m_TagString: Untagged
+  m_TagString: BTN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60853,7 +60915,7 @@ Transform:
   m_PrefabInternal: {fileID: 2044306842}
   m_GameObject: {fileID: 1848387481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.05000067, y: 1.92999995, z: 24.8500004}
+  m_LocalPosition: {x: 4.05000067, y: 1.95000005, z: 24.8500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1690882049}
@@ -70205,6 +70267,22 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -.597000003
       objectReference: {fileID: 0}
+    - target: {fileID: 424098, guid: 16a5baf7f885fc44cb43340ee5079b03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.95000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 424102, guid: 16a5baf7f885fc44cb43340ee5079b03, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 23.2199993
+      objectReference: {fileID: 0}
+    - target: {fileID: 424218, guid: 16a5baf7f885fc44cb43340ee5079b03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.73999977
+      objectReference: {fileID: 0}
+    - target: {fileID: 424218, guid: 16a5baf7f885fc44cb43340ee5079b03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.0810000002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16a5baf7f885fc44cb43340ee5079b03, type: 2}
   m_RootGameObject: {fileID: 1716822905}
@@ -71423,7 +71501,7 @@ Transform:
   m_PrefabInternal: {fileID: 2044306842}
   m_GameObject: {fileID: 2064178955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.70000005, y: .839999974, z: 24.8799992}
+  m_LocalPosition: {x: -3.70000005, y: .839999974, z: 23.2199993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 711164226}
@@ -71560,7 +71638,7 @@ GameObject:
   - 82: {fileID: 2117452630}
   m_Layer: 0
   m_Name: ButtonR2
-  m_TagString: button
+  m_TagString: BTN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

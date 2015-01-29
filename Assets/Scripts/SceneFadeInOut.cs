@@ -8,7 +8,8 @@ public class SceneFadeInOut : MonoBehaviour
 	private bool sceneStarting = true;      // Whether or not the scene is still fading in.
 	public bool sceneEnding = false;
 	public GUITexture guiTexture;
-	
+
+	public GameController gc;
 	public MastermindController mc;
 	
 	void Awake ()
@@ -27,7 +28,7 @@ public class SceneFadeInOut : MonoBehaviour
 			StartScene();
 		
 		if(sceneEnding){
-			EndScene (2,0.15F);
+			EndScene (0.15F);
 		}
 		
 	}
@@ -61,7 +62,7 @@ public class SceneFadeInOut : MonoBehaviour
 		}
 	}
 	
-	public void EndScene (int name, float fadeSpeedInput)
+	public void EndScene (float fadeSpeedInput)
 		
 	{
 		// Make sure the texture is enabled.
@@ -75,7 +76,8 @@ public class SceneFadeInOut : MonoBehaviour
 		// If the screen is almost black...
 		if(guiTexture.color.a >= 0.80f)	{
 			// ... reload the level.
-			Application.LoadLevel(name);
+			gc.LoadCredits();
+			Debug.Log ("Loading Hall of Heroes");
 		}
 	}
 }

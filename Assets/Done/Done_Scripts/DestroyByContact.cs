@@ -35,7 +35,7 @@ public class DestroyByContact : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Boundary") // || other.tag == "Enemy")
+		if (other.tag == "Boundary" || other.tag == "BTN" || other.tag == "FireButton" || other.tag == "MoveLeft" || other.tag == "MoveRight" || other.tag == "Radio") // || other.tag == "Enemy")
 		{
 			return;
 		}
