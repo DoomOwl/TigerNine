@@ -8,11 +8,12 @@ public class Boundary {
 
 public class PlayerController : MonoBehaviour {
 
-	//public float speed;
-	//public float tilt;
+	public float speed;
+	public float tilt;
 	public Boundary boundary;
 
 	public GameObject shot;
+	public Transform Ship;
 	public Transform shotSpawn;
 
 	public float fireRate = 0.15f;
@@ -34,10 +35,22 @@ public class PlayerController : MonoBehaviour {
 			);
 
 		GetComponent<Rigidbody>().rotation = Quaternion.Euler (GetComponent<Rigidbody>().velocity.z * -tilt/2, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
-
-
-	}
 	*/
+	public void MoveLeft () {
+		Ship.transform.Translate(Vector3.left * 0.3f, Space.Self);
+		//transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+		//Ship.GetComponent<Transform>.Translate (Vector3.left * Time.deltaTime, Space.World);
+		}
+
+
+	public void MoveRight () {
+		Ship.transform.Translate(Vector3.right * 0.3f, Space.Self);
+		//Ship.transform.localPosition = (Vector3.Lerp(transform.localPosition, Vector3.right * 0.5f, 1));
+		//	Ship.transform.position = transform.position = Vector3.Lerp(3, transform.position, transform.position);
+		//Vector3.Lerp(pointA, pointB, t)	
+			//transform.Translate(Vector3(0,0,1));
+		}
+
 	public void ShotFire () {
 		if (Time.time > nextFire) {
 			nextFire = Time.time + fireRate;

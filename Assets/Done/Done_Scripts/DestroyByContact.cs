@@ -5,11 +5,15 @@ public class DestroyByContact : MonoBehaviour
 {
 	public GameObject explosion;
 	public GameObject playerExplosion;
-	public int scoreValue;
+	public int asteroidScore;
 	private GameController gameController;
+	private MastermindController mastermindController;
 
-	void Start ()
+	void Start () 
 	{
+		GameObject mastermindControllerObject = GameObject.FindGameObjectWithTag ("Mastermind");
+		mastermindController = mastermindControllerObject.GetComponent <MastermindController> ();
+
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 		if (gameControllerObject != null)
 		{
@@ -20,6 +24,14 @@ public class DestroyByContact : MonoBehaviour
 			Debug.Log ("Cannot find 'GameController' script");
 		}
 	}
+
+	/* void Update ()
+	{
+			if (mastermindController.GameEnd()) {
+				Destroy (gameObject);
+			}
+		}
+	*/
 
 	void OnTriggerEnter (Collider other)
 	{
@@ -33,14 +45,18 @@ public class DestroyByContact : MonoBehaviour
 			Instantiate(explosion, transform.position, transform.rotation);
 		}
 
-		if (other.tag == "exploders")
+		if (other.tag == "Player")
 		{
 			Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
 			gameController.GameOver();
+			mastermindController.GameEnd();
+	
 		}
-		
-		gameController.AddScore(scoreValue);
+
+		gameController.AddScore(asteroidScore);
+		Debug.Log ("Asteroid Destroyed!");
 		Destroy (other.gameObject);
 		Destroy (gameObject);
+
 	}
 }

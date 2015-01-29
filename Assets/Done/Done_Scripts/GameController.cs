@@ -14,11 +14,12 @@ public class GameController : MonoBehaviour
 	public Text scoreText;
 	public Text restartText;
 	public Text gameOverText;
+	public Text winText;
 	
 	private bool gameOver;
 	private bool restart;
 	private int score;
-	private int asteroidScore;
+	private int totalAsteroidScore;
 	
 	void Start ()
 	{
@@ -27,8 +28,9 @@ public class GameController : MonoBehaviour
 		restartText.text = "";
 		gameOverText.text = "";
 		score = 0;
-		scoreText.enabled = true;
-		asteroidScore = 0;
+		scoreText.enabled = false; 
+		winText.enabled = false;
+		totalAsteroidScore = 0;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
 	}
@@ -43,8 +45,9 @@ public class GameController : MonoBehaviour
 			if (Input.anyKey)
 			{
 				Application.LoadLevel (Application.loadedLevel);
-				score = 0;
-				asteroidScore = 0;
+				//score = 0;
+				UpdateScore();
+				totalAsteroidScore = 0;
 				//something that resets all the buttons
 			}
 		}
@@ -71,8 +74,11 @@ public class GameController : MonoBehaviour
 			if (gameOver)
 			{
 				UpdateScore();
-				scoreText.enabled = true;
-				restartText.text = "Click for Restart";
+				Debug.Log ("Game is Over");
+
+				//don't show score unless you win
+				scoreText.enabled = false;
+				restartText.text = "Click to Restart";
 				restart = true;
 				break;
 			}
@@ -81,19 +87,28 @@ public class GameController : MonoBehaviour
 	
 	public void AddScore (int asteroidScore)
 	{
-		score += asteroidScore;
+		totalAsteroidScore += asteroidScore;
 		UpdateScore ();
 	}
 	
 	void UpdateScore ()
 	{
 		score = 15000 - Time.frameCount;
-		scoreText.text = "Score: " + score + " + " + asteroidScore + " asteroid bonus" ;
+		//asteroidScore = ?
+		scoreText.text = "Score: " + score + " and an asteroid bonus of " + totalAsteroidScore + "" ;
+	}
+
+	public void GameWin()
+	{
+			scoreText.enabled = true;
+			winText.enabled = true;
+			StopCoroutine (SpawnWaves());
+			
 	}
 	
 	public void GameOver ()
 	{
 		gameOverText.text = "Game Over!";
 		gameOver = true;
-	}
+		StopCoroutine (SpawnWaves());}
 }

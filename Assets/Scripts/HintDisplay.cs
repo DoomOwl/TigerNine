@@ -27,14 +27,14 @@ public class HintDisplay : MonoBehaviour
 		if (Time.frameCount > 1200 && Time.frameCount < 1400) {
 			textComponent.text = "LAUNCH READY";
 			textComponent.fontSize = 70;
-		}else if(Time.frameCount > 1400 && Time.frameCount < 1450) {
+		}else if(Time.frameCount > 1400 && Time.frameCount < 1500) {
 			textComponent.text = "3";
 			textComponent.fontSize = 150;
-		}else if(Time.frameCount > 1450 && Time.frameCount < 1500) {
+		}else if(Time.frameCount > 1500 && Time.frameCount < 1600) {
 			textComponent.text = "2";
-		}else if(Time.frameCount > 1550 && Time.frameCount < 1700) {
+		}else if(Time.frameCount > 1600 && Time.frameCount < 1800) {
 			textComponent.text = "1";
-		}else if(Time.frameCount > 1700) {
+		}else if(Time.frameCount > 1800 && Time.frameCount < 2000) {
 			textComponent.text = "";
 		}
 

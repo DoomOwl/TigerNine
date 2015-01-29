@@ -20,6 +20,7 @@ public class Button : MonoBehaviour
 
 	//scripts
 	public PlayerController playerController;
+	public radioScript radio;
 
 		//audio variables
 	public AudioSource audio; 
@@ -81,7 +82,17 @@ public class Button : MonoBehaviour
 					if (gameObject.tag == "FireButton") {
 						playerController.ShotFire();
 					}
+					if (gameObject.tag == "MoveLeft") {
+						playerController.MoveLeft();
+					}
+					if (gameObject.tag == "MoveRight") {
+						playerController.MoveRight();
+					}
+					if (gameObject.tag == "Radio") {
+						radio.StationChange();
+					}
 				}
+			
 			
 			#if UNITY_ANDROID
 				for (var i = 0; i < Input.touchCount; ++i) {
@@ -118,7 +129,7 @@ public class Button : MonoBehaviour
 			}
 
 			ButtonState = (ButtonState + 1) % NOptions;
-			Debug.Log ("Ray hit! Button is now in state " + ButtonState);
+			//Debug.Log ("Ray hit! Button is now in state " + ButtonState);
 
 			if (OnPressed != null)
 			OnPressed (ButtonState);
