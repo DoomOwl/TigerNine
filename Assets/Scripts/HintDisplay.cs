@@ -7,6 +7,10 @@ public class HintDisplay : MonoBehaviour
 
 	public SpriteRenderer[] Icons;
 
+	public int currentSceneFrames;
+
+	public int frameCountAtStart;
+
 	private TextMesh textComponent;
 		// Use this for initialization
 	void Start ()
@@ -18,23 +22,29 @@ public class HintDisplay : MonoBehaviour
 		textComponent.fontSize = 100;
 		for(int i=0;i<Icons.Length;i++){
 			Icons[i].color = Color.green;
+
+		frameCountAtStart = Time.frameCount;
+		currentSceneFrames = -frameCountAtStart;
 		}
 	}
 	
 		// Update is called once per frame
 	void Update ()
 	{
-		if (Time.frameCount > 1200 && Time.frameCount < 1400) {
+		currentSceneFrames = Time.frameCount -frameCountAtStart;
+		//Debug.Log (currentSceneFrames);
+
+		if (currentSceneFrames > 1200 && currentSceneFrames < 1400) {
 			textComponent.text = "LAUNCH READY";
 			textComponent.fontSize = 70;
-		}else if(Time.frameCount > 1400 && Time.frameCount < 1500) {
+		}else if(currentSceneFrames > 1400 && currentSceneFrames < 1500) {
 			textComponent.text = "3";
 			textComponent.fontSize = 150;
-		}else if(Time.frameCount > 1500 && Time.frameCount < 1600) {
+		}else if(currentSceneFrames > 1500 && currentSceneFrames < 1600) {
 			textComponent.text = "2";
-		}else if(Time.frameCount > 1600 && Time.frameCount < 1800) {
+		}else if(currentSceneFrames > 1600 && currentSceneFrames < 1800) {
 			textComponent.text = "1";
-		}else if(Time.frameCount > 1800 && Time.frameCount < 2000) {
+		}else if(currentSceneFrames > 1800 && currentSceneFrames < 2000) {
 			textComponent.text = "";
 		}
 

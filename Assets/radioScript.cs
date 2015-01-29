@@ -20,7 +20,7 @@ public class radioScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		radioStation = "off";
 	}
 	
 	// Update is called once per frame
