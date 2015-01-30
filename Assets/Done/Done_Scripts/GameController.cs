@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
+
+	private float minRange = 0.4f;
+	private float maxRange = 1.2f;
 	
 	public Text scoreText;
 	public Text restartText;
@@ -68,6 +71,7 @@ public class GameController : MonoBehaviour
 				GameObject hazard = hazards [Random.Range (0, hazards.Length)];
 				//Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Vector3 spawnPosition =  transform.TransformPoint(Random.Range (-spawnValues.x, spawnValues.x), Random.Range (-spawnValues.y, spawnValues.y), spawnValues.z);
+				hazard.GetComponent<Transform>().localScale = new  Vector3 (Random.Range (minRange, maxRange), Random.Range (minRange, maxRange), Random.Range (minRange, maxRange)); 	
 				//transform.localPosition = Vector3(0, 0, 0);
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate (hazard, spawnPosition, spawnRotation);
