@@ -76,6 +76,14 @@ function Start () {
     yield FadeGUITexture(guiObject, fadeTime, Fade.Out);
 	
 	yield WaitForSeconds(0.25);
+	
+	yield FadeGUITexture(guiObject, fadeTime, Fade.In);
+
+    yield WaitForSeconds(0.25);
+
+    yield FadeGUITexture(guiObject, fadeTime, Fade.Out);
+	
+	yield WaitForSeconds(0.25);
     //Application.LoadLevel("prototype");
 }
 
@@ -92,7 +100,7 @@ function Update () {
       }
 	#endif
 	
-	if(Input.anyKey) {
+	if(Input.GetButtonDown ("Fire1")) {
 		//yield FadeGUITexture(guiObject, fadeTime, Fade.Out);
 		Application.LoadLevel(1);
 		#if UNITY_ANDROID
