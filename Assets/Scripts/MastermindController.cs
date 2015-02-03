@@ -266,12 +266,12 @@ public class MastermindController : MonoBehaviour
 		}
 
 		if (NInactive == 6) {
-			//anything?
+			gameController.spawnWait = 3.0f;
+			gameController.hazardCount = 12;
 		}
 		
 		if(NInactive == 7){
-			gameController.spawnWait = 3.0f;
-			gameController.hazardCount = 12;
+			//anything?
 		}
 
 		if (NInactive == 4) {

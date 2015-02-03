@@ -32,7 +32,7 @@ public class HintDisplay : MonoBehaviour
 	void Update ()
 	{
 		currentSceneFrames = Time.frameCount -frameCountAtStart;
-		Debug.Log (currentSceneFrames);
+	//	Debug.Log (currentSceneFrames);
 
 		if (currentSceneFrames > 1200 && currentSceneFrames < 1400) {
 			textComponent.text = "LAUNCH READY";

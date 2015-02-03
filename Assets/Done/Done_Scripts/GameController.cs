@@ -102,7 +102,7 @@ public class GameController : MonoBehaviour
 	
 	void UpdateScore ()
 	{
-		score = 20000 - framesThisScene; 
+		score = 50000 - framesThisScene; 
 		//asteroidScore = ?
 		scoreText.text = "Score: " + score + " and an asteroid bonus of " + totalAsteroidScore + "" ;
 	}
