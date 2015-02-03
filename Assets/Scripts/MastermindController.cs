@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MastermindController : MonoBehaviour
@@ -181,7 +181,7 @@ public class MastermindController : MonoBehaviour
 				LeftButton.AllowInteraction = false;
 				RightButton.AllowInteraction = false;
 				RadioButton.AllowInteraction = false;
-				gameController.spawnWait = 9;
+				gameController.spawnWait = 500;
 				
 				if(StateTimer >= CurrentState.Duration) {
 					SmokeParticles.SetActive(false);
@@ -266,15 +266,11 @@ public class MastermindController : MonoBehaviour
 		}
 
 		if (NInactive == 6) {
-			LeftButton.AllowInteraction = true;
-			RightButton.AllowInteraction = true;
-			gameController.spawnWait = 2;
-			gameController.hazardCount = 10;
-			Engine.SetActive(true);
+			//anything?
 		}
 		
 		if(NInactive == 7){
-			gameController.spawnWait = 1.5f;
+			gameController.spawnWait = 3.0f;
 			gameController.hazardCount = 12;
 		}
 
@@ -288,6 +284,11 @@ public class MastermindController : MonoBehaviour
 			//I'd rather have the missiles launch when you press the middle button
 		if (NInactive == 5) {
 			Missiles.animation.Play("missilesLaunch");
+			LeftButton.AllowInteraction = true;
+			RightButton.AllowInteraction = true;
+			gameController.spawnWait = 6;
+			gameController.hazardCount = 10;
+			Engine.SetActive(true);
 		}
 
 			//increase number of inactive buttons and re-randomize new state
