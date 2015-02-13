@@ -11,7 +11,7 @@ PlayerSettings:
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: TigerSquad
-  productName: ggj2015
+  productName: VR-Tiger9
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1024
@@ -55,7 +55,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   macFullscreenMode: 2
-  d3d9FullscreenMode: 0
+  d3d9FullscreenMode: 1
   d3d11ForceExclusiveMode: 1
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
@@ -67,7 +67,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.TigerSquad.TigerNine
+  iPhoneBundleIdentifier: com.TigerSquad.VRTigerNine
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 1468a3fde98556a439610400ce9fc536
@@ -251,6 +251,12 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   stvDeviceAddress: 
+  wp8UnprocessedPlugins: []
+  intPropertyNames:
+  - iOS::Architecture
+  - iOS::ScriptingBackend
+  iOS::Architecture: 2
+  iOS::ScriptingBackend: 0
   firstStreamedLevelWithResources: 0
   unityRebuildLibraryVersion: 9
   unityForwardCompatibleVersion: 39

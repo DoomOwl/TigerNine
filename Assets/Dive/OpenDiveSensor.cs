@@ -33,7 +33,7 @@ public class OpenDiveSensor : MonoBehaviour {
 	
 	public float zoom=0.1f;
 	private float IPDCorrection=0.0f;
-	private float aspectRatio;
+	public float aspectRatio=1.25f;
 	public float znear=0.1f;
 	public float zfar=10000.0f;
 
@@ -224,7 +224,7 @@ public class OpenDiveSensor : MonoBehaviour {
 
 	
 	void Update () {
-		aspectRatio=(Screen.height*2.0f)/Screen.width;
+		//aspectRatio=(Screen.height*2.0f)/Screen.width;
 		setIPDCorrection(IPDCorrection); 
 
 		//Debug.Log ("Divecamera"+cameraleft.aspect+"1/asp "+1/cameraleft.aspect+" Screen Width/Height "+ aspectRatio);

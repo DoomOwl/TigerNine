@@ -34,7 +34,8 @@ public class MastermindController : MonoBehaviour
 	public AudioSource[] sndConfLoops; // Loops played after each stage completion
 
 	
-	public SceneFadeInOut Fader;
+	public SceneFadeInOut FaderL;
+	public SceneFadeInOut FaderR;
 	
 	//cinematic timers
 	public CinematicState CurrentState;
@@ -105,9 +106,9 @@ public class MastermindController : MonoBehaviour
 		sndConfLoops[0] = aSources[0];
 		sndConfLoops[1] = null;
 		sndConfLoops[2] = null;
-		sndConfLoops[3] = aSources[1];
+		sndConfLoops[3] = null;
 		sndConfLoops[4] = null;
-		sndConfLoops[5] = null;
+		sndConfLoops[5] = aSources[1];
 		sndConfLoops[6] = aSources[2];
 		sndConfLoops[7] = null;
 
@@ -181,7 +182,9 @@ public class MastermindController : MonoBehaviour
 				LeftButton.AllowInteraction = false;
 				RightButton.AllowInteraction = false;
 				RadioButton.AllowInteraction = false;
-				gameController.spawnWait = 500;
+				gameController.spawnWait = 10;
+				gameController.waveWait = 10;
+				gameController.hazardCount = 1;
 				
 				if(StateTimer >= CurrentState.Duration) {
 					SmokeParticles.SetActive(false);
@@ -266,12 +269,15 @@ public class MastermindController : MonoBehaviour
 		}
 
 		if (NInactive == 6) {
-			gameController.spawnWait = 3.0f;
-			gameController.hazardCount = 12;
+			gameController.spawnWait = 0.1f;
+			gameController.waveWait = 2;
+			gameController.hazardCount = 18;
 		}
 		
 		if(NInactive == 7){
-			//anything?
+			gameController.spawnWait = 50;
+			gameController.waveWait = 50;
+			gameController.hazardCount = 0;
 		}
 
 		if (NInactive == 4) {
@@ -279,6 +285,9 @@ public class MastermindController : MonoBehaviour
 			Missiles.animation.Play("missilePrep");
 			ShotSpawn.SetActive (true);
 			FireButton.AllowInteraction = true;
+			gameController.spawnWait = 3;
+			gameController.waveWait = 8;
+			gameController.hazardCount = 5;
 		}
 
 			//I'd rather have the missiles launch when you press the middle button
@@ -286,7 +295,8 @@ public class MastermindController : MonoBehaviour
 			Missiles.animation.Play("missilesLaunch");
 			LeftButton.AllowInteraction = true;
 			RightButton.AllowInteraction = true;
-			gameController.spawnWait = 6;
+			gameController.spawnWait = 1;
+			gameController.waveWait = 6;
 			gameController.hazardCount = 10;
 			Engine.SetActive(true);
 		}
@@ -306,8 +316,9 @@ public class MastermindController : MonoBehaviour
 
 	public void GameEnd ()
 	{
-		Fader.transform.position = transform.position;
-		Fader.sceneEnding = true;
+		//Fader.transform.position = transform.position;
+		FaderL.sceneEnding = true;
+		FaderR.sceneEnding = true;
 		Asteroids = GameObject.FindGameObjectsWithTag ("Enemy");
 		foreach (Object Asteroid in Asteroids) {
 			Destroy (Asteroid);

@@ -18,6 +18,9 @@ public class radioScript : MonoBehaviour {
 	public AudioSource Radio4;
 	public AudioClip AlexMusic;
 
+	public AudioSource Radio5;
+	public AudioClip DonMusic;
+
 	// Use this for initialization
 	void Start () {
 		radioStation = "gameRadio";
@@ -39,6 +42,9 @@ public class radioScript : MonoBehaviour {
 				radioStation = "MatMusic";
 			}
 			else if(radioStation == "MatMusic"){
+				radioStation = "DonMusic";
+			}
+			else if(radioStation == "DonMusic"){
 				radioStation = "off";
 			}
 			
@@ -47,6 +53,7 @@ public class radioScript : MonoBehaviour {
 				Radio2.audio.volume = 0;
 				Radio3.audio.volume = 0;
 				Radio4.audio.volume = 0;
+				Radio5.audio.volume = 0;
 				Debug.Log ("off");
 		}
 			if(radioStation == "gameRadio"){
@@ -54,6 +61,7 @@ public class radioScript : MonoBehaviour {
 				Radio2.audio.volume = 0;
 				Radio3.audio.volume = 0;
 				Radio4.audio.volume = 0;
+				Radio5.audio.volume = 0;
 				Debug.Log ("Station01");
 			}
 			else if(radioStation == "spaceNPR"){
@@ -61,6 +69,7 @@ public class radioScript : MonoBehaviour {
 				Radio2.audio.volume = 1;
 				Radio3.audio.volume = 0;
 				Radio4.audio.volume = 0;
+				Radio5.audio.volume = 0;
 				Debug.Log ("Station02");
 			}
 			else if(radioStation == "AlexMusic"){
@@ -68,15 +77,27 @@ public class radioScript : MonoBehaviour {
 				Radio2.audio.volume = 0;
 				Radio3.audio.volume = 1;
 				Radio4.audio.volume = 0;
+				Radio5.audio.volume = 0;
 				Debug.Log ("Station03");
-		}
+			}
 			else if(radioStation == "MatMusic"){
 				Radio1.audio.volume = 0;
 				Radio2.audio.volume = 0;
 				Radio3.audio.volume = 0;
 				Radio4.audio.volume = 1;
+				Radio5.audio.volume = 0;
 				Debug.Log ("Station04");
 			}
+			else if(radioStation == "DonMusic"){
+				Radio1.audio.volume = 0;
+				Radio2.audio.volume = 0;
+				Radio3.audio.volume = 0;
+				Radio4.audio.volume = 0;
+				Radio5.audio.volume = 1;
+				Debug.Log ("Station05");
+		}
+			
+
 		}
 }
 

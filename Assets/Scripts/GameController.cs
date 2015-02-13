@@ -14,10 +14,15 @@ public class GameController : MonoBehaviour
 	private float minRange = 0.4f;
 	private float maxRange = 1.2f;
 	
-	public Text scoreText;
-	public Text restartText;
-	public Text gameOverText;
-	public Text winText;
+	public Text scoreTextL;
+	public Text restartTextL;
+	public Text gameOverTextL;
+	public Text winTextL;
+
+	public Text scoreTextR;
+	public Text restartTextR;
+	public Text gameOverTextR;
+	public Text winTextR;
 	
 	private bool gameOver;
 	private bool restart;
@@ -32,11 +37,15 @@ public class GameController : MonoBehaviour
 		framesAtStart = Time.frameCount;
 		gameOver = false;
 		restart = false;
-		restartText.text = "";
-		gameOverText.text = "";
+		restartTextL.text = "";
+		restartTextR.text = "";
+		gameOverTextL.text = "";
+		gameOverTextR.text = "";
 		score = 0;
-		scoreText.enabled = false; 
-		winText.enabled = false;
+		scoreTextL.enabled = false; 
+		scoreTextR.enabled = false; 
+		winTextL.enabled = false;
+		winTextR.enabled = false;
 		totalAsteroidScore = 0;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
@@ -52,7 +61,7 @@ public class GameController : MonoBehaviour
 		{
 			if (Input.anyKey)
 			{
-				Application.LoadLevel (Application.loadedLevel);
+				Application.Quit ();
 				//score = 0;
 				//UpdateScore();
 				totalAsteroidScore = 0;
@@ -79,18 +88,8 @@ public class GameController : MonoBehaviour
 				yield return new WaitForSeconds (spawnWait);
 			}
 			yield return new WaitForSeconds (waveWait);
-			
-			if (gameOver)
-			{
-				UpdateScore();
-				Debug.Log ("Game is Over");
+			//	break;
 
-				//don't show score unless you win
-				scoreText.enabled = false;
-				restartText.text = "Click to Restart";
-				restart = true;
-				break;
-			}
 		}
 	}
 	
@@ -104,21 +103,25 @@ public class GameController : MonoBehaviour
 	{
 		score = 50000 - framesThisScene; 
 		//asteroidScore = ?
-		scoreText.text = "Score: " + score + " and an asteroid bonus of " + totalAsteroidScore + "" ;
+		scoreTextL.text = "Score: " + score + " w/ asteroid bonus: " + totalAsteroidScore + "" ;
+		scoreTextR.text = "Score: " + score + " w/ asteroid bonus: " + totalAsteroidScore + "" ;
 	}
 
 	public void GameWin()
 	{
-			scoreText.enabled = true;
-			winText.enabled = true;
-			gameOverText.enabled = false;
+			scoreTextL.enabled = true;
+			winTextL.enabled = true;
+			gameOverTextL.enabled = false;
+			scoreTextR.enabled = true;
+			winTextR.enabled = true;
+			gameOverTextR.enabled = false;
 			UpdateScore ();
 			StopCoroutine (SpawnWaves ());
 	}
 
 	public void LoadCredits()
 	{
-		if (winText.enabled == true) {
+		if (winTextL.enabled == true) {
 			Application.LoadLevel (2);
 			Debug.Log ("Loading loading loading!");
 		}
@@ -126,9 +129,25 @@ public class GameController : MonoBehaviour
 		
 	public void GameOver ()
 	{
-		gameOverText.text = "Game Over!";
+		Handheld.Vibrate();
+		gameOverTextL.text = "Game Over!";
+		gameOverTextR.text = "Game Over!";
 		gameOver = true;
-		scoreText.enabled = false;
-		winText.enabled = false;
-		StopCoroutine (SpawnWaves());}
+		scoreTextL.enabled = false;
+		scoreTextR.enabled = false;
+		winTextL.enabled = false;
+		winTextR.enabled = false;
+		StopCoroutine (SpawnWaves());
+		
+		UpdateScore();
+		Debug.Log ("Game is Over");
+	
+	//don't show score unless you win
+		scoreTextL.enabled = false;
+		scoreTextR.enabled = false;
+		restartTextL.text = "Click to Exit";
+		restartTextR.text = "Click to Exit";
+		restart = true;
+		
+	}
 }

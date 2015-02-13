@@ -73,12 +73,25 @@ public class Button : MonoBehaviour
 				if (CardboardMagnetSensor.CheckIfWasClicked()) {
 					Press ();
 					Handheld.Vibrate();
+					if (gameObject.tag == "FireButton") {
+						playerController.ShotFire();
+					}
+					if (gameObject.tag == "MoveLeft") {
+						playerController.MoveLeft();
+					}
+					if (gameObject.tag == "MoveRight") {
+						playerController.MoveRight();
+					}
+					if (gameObject.tag == "Radio") {
+						radio.StationChange();
+					}
 					Debug.Log("MAGNET STATE CHANGE!");  
 					CardboardMagnetSensor.ResetClick();
 				}
 #endif
 				if (Input.GetButtonDown ("Fire1")) {
 					Press ();
+					Handheld.Vibrate();
 					if (gameObject.tag == "FireButton") {
 						playerController.ShotFire();
 					}
@@ -94,14 +107,14 @@ public class Button : MonoBehaviour
 				}
 			
 			
-			#if UNITY_ANDROID
+		/*	#if UNITY_ANDROID
 				for (var i = 0; i < Input.touchCount; ++i) {
 					if (Input.GetTouch (i).phase == TouchPhase.Began) {
 						Press ();
 						Handheld.Vibrate ();
 					}
 				} 
-#endif
+#endif */
 			} else {
 						//Behaviour h = (Behaviour)GetComponent("Halo");
 				h.enabled = false;

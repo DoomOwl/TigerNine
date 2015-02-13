@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SceneFadeInOut : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class SceneFadeInOut : MonoBehaviour
 	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
 	private bool sceneStarting = true;      // Whether or not the scene is still fading in.
 	public bool sceneEnding = false;
-	public GUITexture guiTexture;
+	public RawImage guiTexture;
 
 	public GameController gc;
 	public MastermindController mc;
@@ -16,7 +17,8 @@ public class SceneFadeInOut : MonoBehaviour
 		
 	{
 		// Set the texture so that it is the the size of the screen and covers it.	
-		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
+
+		//guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
 	}
 
 	
@@ -28,7 +30,7 @@ public class SceneFadeInOut : MonoBehaviour
 			StartScene();
 		
 		if(sceneEnding){
-			EndScene (0.15F);
+			EndScene (0.3F);
 		}
 		
 	}
@@ -48,10 +50,11 @@ public class SceneFadeInOut : MonoBehaviour
 	
 	void StartScene ()	
 	{
+		//Debug.Log ("Starting Scene...");
 		// Fade the texture to clear.
 		FadeToClear();
 		// If the texture is almost clear...
-		if(guiTexture.color.a <= 0.05f)
+		if(guiTexture.color.a <= 0.045f)
 		{
 			// ... set the colour to clear and disable the GUITexture.	
 			guiTexture.color = Color.clear;
@@ -65,6 +68,7 @@ public class SceneFadeInOut : MonoBehaviour
 	public void EndScene (float fadeSpeedInput)
 		
 	{
+		//Debug.Log ("Ending Scene...");
 		// Make sure the texture is enabled.
 		guiTexture.enabled = true;
 		fadeSpeed = fadeSpeedInput;
@@ -74,7 +78,7 @@ public class SceneFadeInOut : MonoBehaviour
 		FadeToBlack();
 		
 		// If the screen is almost black...
-		if(guiTexture.color.a >= 0.80f)	{
+		if(guiTexture.color.a >= 0.95f)	{
 			// ... reload the level.
 			gc.LoadCredits();
 			Debug.Log ("Loading Hall of Heroes");
