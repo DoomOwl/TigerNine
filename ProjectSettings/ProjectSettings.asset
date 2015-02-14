@@ -11,7 +11,7 @@ PlayerSettings:
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: TigerSquad
-  productName: VR-Tiger9
+  productName: Tiger9-NonVR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1024
@@ -67,7 +67,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.TigerSquad.VRTigerNine
+  iPhoneBundleIdentifier: com.TigerSquad.NoVRTigerNine
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 1468a3fde98556a439610400ce9fc536

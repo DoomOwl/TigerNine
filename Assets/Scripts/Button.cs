@@ -26,6 +26,9 @@ public class Button : MonoBehaviour
 	public AudioSource audio; 
 	public AudioClip sndBeep;
 
+	public Material materialDIF;
+	public Material materialILL;
+
 	private Behaviour h;
 
 
@@ -38,8 +41,8 @@ public class Button : MonoBehaviour
 		h = (Behaviour)GetComponent ("Halo");
 		h.enabled = false;
 		
-		childOn.SetActive (true);
-		childOff.SetActive (false);
+		childOn.SetActive (false);
+		childOff.SetActive (true);
 
 #if UNITY_ANDROID
 		CardboardMagnetSensor.SetEnabled(magnetDetectionEnabled);
@@ -59,7 +62,28 @@ public class Button : MonoBehaviour
 				setLights ();
 			}
 		}
+
+		/*if (AllowInteraction == false && gameObject.tag == "Radio") {
+			childOff.SetActive (false);
+		}
+
+		 if (AllowInteraction == true && gameObject.tag == "Radio") {
+			childOff.SetActive (true);
+		} */
+
+		if (AllowInteraction == false && gameObject.tag != "BTN") {
+			childOff.renderer.material = materialDIF;
+		}
+
+		if (AllowInteraction == true && gameObject.tag != "BTN") {
+			childOff.renderer.material = materialILL;
+		}
+
 		if(AllowInteraction){
+			/*if (gameObject.tag != "BTN") {
+				childOff.renderer.material = materialILL;
+			}*/
+
 			Ray ray = Camera.main.ViewportPointToRay (new Vector3 (0.5F, 0.5F, 0));
 			RaycastHit hit;
 
@@ -118,6 +142,8 @@ public class Button : MonoBehaviour
 			} else {
 						//Behaviour h = (Behaviour)GetComponent("Halo");
 				h.enabled = false;
+
+				//childOff.renderer.material = materialDIF;
 						//print("I'm looking at nothing!");
 						//deactivate all halos
 			}

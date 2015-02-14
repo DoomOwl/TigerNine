@@ -54,6 +54,7 @@ public class MastermindController : MonoBehaviour
 
 	//Game Objects
 	public GameObject RadioAudio;
+	public GameObject RadioButtonSwitch;
 	public GameObject Missiles;
 	public GameObject ShotSpawn;
 	public GameObject[] Asteroids;
@@ -115,6 +116,7 @@ public class MastermindController : MonoBehaviour
 			//Object States
 		SmokeParticles.SetActive(false);
 		Engine.SetActive(true);
+		RadioButtonSwitch.SetActive(false);
 
 		RadioAudio.SetActive(false);
 		ShotSpawn = GameObject.Find ("Shot Spawn");
@@ -266,6 +268,10 @@ public class MastermindController : MonoBehaviour
 		if(NInactive == 1){
 			RadioAudio.SetActive(true);
 			RadioButton.AllowInteraction = true;
+			RadioButtonSwitch.SetActive(true);
+
+			//RadioButton.childOff.SetActive;
+			//RadioButtonLight. = true;
 		}
 
 		if (NInactive == 6) {
@@ -285,6 +291,7 @@ public class MastermindController : MonoBehaviour
 			Missiles.animation.Play("missilePrep");
 			ShotSpawn.SetActive (true);
 			FireButton.AllowInteraction = true;
+			//FireButtonLight. = true;
 			gameController.spawnWait = 3;
 			gameController.waveWait = 8;
 			gameController.hazardCount = 5;
@@ -295,6 +302,7 @@ public class MastermindController : MonoBehaviour
 			Missiles.animation.Play("missilesLaunch");
 			LeftButton.AllowInteraction = true;
 			RightButton.AllowInteraction = true;
+			//LeftButtonLight.
 			gameController.spawnWait = 1;
 			gameController.waveWait = 6;
 			gameController.hazardCount = 10;

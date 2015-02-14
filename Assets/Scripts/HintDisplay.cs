@@ -34,17 +34,17 @@ public class HintDisplay : MonoBehaviour
 		currentSceneFrames = Time.frameCount -frameCountAtStart;
 	//	Debug.Log (currentSceneFrames);
 
-		if (currentSceneFrames > 1400 && currentSceneFrames < 1600) {
+		if (currentSceneFrames > 1300 && currentSceneFrames < 1500) {
 			textComponent.text = "LAUNCH READY";
 			textComponent.fontSize = 70;
-		}else if(currentSceneFrames > 1600 && currentSceneFrames < 1700) {
+		}else if(currentSceneFrames > 1500 && currentSceneFrames < 1600) {
 			textComponent.text = "3";
 			textComponent.fontSize = 150;
-		}else if(currentSceneFrames > 1700 && currentSceneFrames < 1800) {
+		}else if(currentSceneFrames > 1600 && currentSceneFrames < 1700) {
 			textComponent.text = "2";
-		}else if(currentSceneFrames > 1800 && currentSceneFrames < 2000) {
+		}else if(currentSceneFrames > 1700 && currentSceneFrames < 1800) {
 			textComponent.text = "1";
-		}else if(currentSceneFrames > 2000 && currentSceneFrames < 2200) {
+		}else if(currentSceneFrames > 1800 && currentSceneFrames < 2000) {
 			textComponent.text = "";
 		}
 
