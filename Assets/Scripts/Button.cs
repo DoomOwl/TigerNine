@@ -42,7 +42,10 @@ public class Button : MonoBehaviour
 		h.enabled = false;
 		
 		childOn.SetActive (false);
-		childOff.SetActive (true);
+
+		if (gameObject.tag != "Radio") {
+			childOff.SetActive (true);
+		}
 
 #if UNITY_ANDROID
 		CardboardMagnetSensor.SetEnabled(magnetDetectionEnabled);

@@ -977,6 +977,102 @@ Transform:
   - {fileID: 1935378580}
   m_Father: {fileID: 2057753813}
   m_RootOrder: 0
+--- !u!1 &63739587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100016, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 63739588}
+  - 23: {fileID: 63739591}
+  - 102: {fileID: 63739590}
+  - 114: {fileID: 63739589}
+  m_Layer: 0
+  m_Name: Hint Text - AndroidNonVR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &63739588
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400016, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63739587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .00189530849, z: .0653656721}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1037036319}
+  m_RootOrder: 10
+--- !u!114 &63739589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63739587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc96aa205e01347eb9d74e2925484cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controller: {fileID: 149662366}
+  Icons:
+  - {fileID: 169008163}
+  - {fileID: 432586404}
+  - {fileID: 1637395471}
+  - {fileID: 564185940}
+  - {fileID: 126717316}
+  - {fileID: 429114599}
+  - {fileID: 1173507929}
+  currentSceneFrames: 0
+  frameCountAtStart: 0
+--- !u!102 &63739590
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 10200000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63739587}
+  m_Text: -0 +0
+  m_OffsetZ: 0
+  m_CharacterSize: .00600000005
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 128
+  m_FontStyle: 0
+  m_RichText: 0
+  m_Font: {fileID: 12800000, guid: fa71322a4c2664d08802ce0b37e3a6e2, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &63739591
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63739587}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: fa71322a4c2664d08802ce0b37e3a6e2, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &68006949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1397,18 @@ Prefab:
     - target: {fileID: 11400000, guid: 9069ff3d504c93343bc5c9a6d99a845b, type: 2}
       propertyPath: aspectRatio
       value: .75
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9069ff3d504c93343bc5c9a6d99a845b, type: 2}
+      propertyPath: m_Name
+      value: Dive_Camera-NonVR
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 9069ff3d504c93343bc5c9a6d99a845b, type: 2}
+      propertyPath: field of view
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9069ff3d504c93343bc5c9a6d99a845b, type: 2}
+      propertyPath: zoom
+      value: .119999997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9069ff3d504c93343bc5c9a6d99a845b, type: 2}
@@ -2586,7 +2694,7 @@ GameObject:
   - 82: {fileID: 149662368}
   - 114: {fileID: 149662366}
   m_Layer: 0
-  m_Name: Dive_Camera
+  m_Name: Dive_Camera-NonVR
   m_TagString: Mastermind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2626,7 +2734,7 @@ MonoBehaviour:
   nogyrotexture: {fileID: 2800000, guid: 286000da31c179247a31fdf256605ee2, type: 3}
   cameraleft: {fileID: 1640384269}
   cameraright: {fileID: 1590314746}
-  zoom: .0960000008
+  zoom: .119999997
   aspectRatio: .75
   znear: .100000001
   zfar: 10000
@@ -4330,7 +4438,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 126904, guid: 72d4b754e6aa41840a68c592d15580a2, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426902, guid: 72d4b754e6aa41840a68c592d15580a2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -36216,6 +36324,7 @@ Transform:
   - {fileID: 1350825354}
   - {fileID: 50195967}
   - {fileID: 311439442}
+  - {fileID: 63739588}
   m_Father: {fileID: 2057753813}
   m_RootOrder: 11
 --- !u!1 &1037576052
@@ -46042,7 +46151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1294936552
 Transform:
   m_ObjectHideFlags: 0
@@ -50210,12 +50319,12 @@ GameObject:
   - 102: {fileID: 1350825356}
   - 114: {fileID: 1350825355}
   m_Layer: 0
-  m_Name: Hint Text - Android
+  m_Name: Hint Text - AndroidVR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1350825354
 Transform:
   m_ObjectHideFlags: 0
@@ -50530,11 +50639,11 @@ Prefab:
       objectReference: {fileID: 1173507929}
     - target: {fileID: 100016, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
       propertyPath: m_Name
-      value: Hint Text - Android
+      value: Hint Text - AndroidVR
       objectReference: {fileID: 0}
     - target: {fileID: 100016, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: a2ffe3ccefbfc492d8b86c1b59d1c3fc, type: 2}
       propertyPath: m_Enabled
@@ -58692,7 +58801,7 @@ Camera:
     height: 1
   near clip plane: .100000001
   far clip plane: 5000
-  field of view: 85
+  field of view: 95
   orthographic: 0
   orthographic size: 100
   m_Depth: -1
@@ -75795,7 +75904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1904589384
 Transform:
   m_ObjectHideFlags: 0

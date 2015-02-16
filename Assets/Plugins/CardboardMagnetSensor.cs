@@ -98,13 +98,13 @@ public class CardboardMagnetSensor {
 	// Updates 'sensorData' and determines if magnet was clicked.
 	private static void UpdateData() {
 		Vector3 currentVector = Input.compass.rawVector;
-		Debug.Log("compasRawVector = " + currentVector);
+//		Debug.Log("compasRawVector = " + currentVector);
 		if (wasClicked) {
-			Debug.Log("CLICKED!!!!!");
+			//Debug.Log("CLICKED!!!!!");
 		}
 		
 		if (currentVector.x == 0 && currentVector.y == 0 && currentVector.z == 0) {
-			Debug.Log("No compass enabled");
+			//Debug.Log("No compass enabled");
 			return;
 		}
 		
