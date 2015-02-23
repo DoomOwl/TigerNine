@@ -9,6 +9,6 @@ function Update () {
 		}
 	#endif */
 	if (Input.anyKey) {
-		Application.Quit();
+		Application.LoadLevel (0);
 	}
 }
