@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
 		{
 			if (Input.anyKey)
 			{
-				Application.Quit ();
+				Application.LoadLevel(0);
 				//score = 0;
 				//UpdateScore();
 				totalAsteroidScore = 0;
@@ -129,7 +129,9 @@ public class GameController : MonoBehaviour
 		
 	public void GameOver ()
 	{
+		#if UNITY_ANDROID
 		Handheld.Vibrate();
+		#endif
 		gameOverTextL.text = "Game Over!";
 		gameOverTextR.text = "Game Over!";
 		gameOver = true;
@@ -145,8 +147,8 @@ public class GameController : MonoBehaviour
 	//don't show score unless you win
 		scoreTextL.enabled = false;
 		scoreTextR.enabled = false;
-		restartTextL.text = "Click to Exit";
-		restartTextR.text = "Click to Exit";
+		restartTextL.text = "Click to Restart";
+		restartTextR.text = "Click to Restart";
 		restart = true;
 		
 	}

@@ -118,7 +118,9 @@ public class Button : MonoBehaviour
 #endif
 				if (Input.GetButtonDown ("Fire1")) {
 					Press ();
+					#if UNITY_ANDROID
 					Handheld.Vibrate();
+					#endif
 					if (gameObject.tag == "FireButton") {
 						playerController.ShotFire();
 					}

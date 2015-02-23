@@ -7,9 +7,9 @@ public class HintDisplay : MonoBehaviour
 
 	public SpriteRenderer[] Icons;
 
-	public int currentSceneFrames;
-
-	public int frameCountAtStart;
+	//public int currentSceneFrames;
+	//public int frameCountAtStart;
+	public float StateTimer = 0f;
 
 	private TextMesh textComponent;
 		// Use this for initialization
@@ -22,29 +22,30 @@ public class HintDisplay : MonoBehaviour
 		textComponent.fontSize = 100;
 		for(int i=0;i<Icons.Length;i++){
 			Icons[i].color = Color.green;
-
-		frameCountAtStart = Time.frameCount;
-		currentSceneFrames = -frameCountAtStart;
+		StateTimer = 0;
+		//frameCountAtStart = Time.frameCount;
+		//currentSceneFrames = -frameCountAtStart;
 		}
 	}
 	
 		// Update is called once per frame
 	void Update ()
 	{
-		currentSceneFrames = Time.frameCount -frameCountAtStart;
-	//	Debug.Log (currentSceneFrames);
+		//currentSceneFrames = Time.frameCount -frameCountAtStart;
+		StateTimer += Time.deltaTime;
+		//Debug.Log (StateTimer);
 
-		if (currentSceneFrames > 1300 && currentSceneFrames < 1500) {
+		if (StateTimer > 30 && StateTimer < 42) {
 			textComponent.text = "LAUNCH READY";
 			textComponent.fontSize = 70;
-		}else if(currentSceneFrames > 1500 && currentSceneFrames < 1600) {
+		}else if(StateTimer > 42 && StateTimer < 45) {
 			textComponent.text = "3";
 			textComponent.fontSize = 150;
-		}else if(currentSceneFrames > 1600 && currentSceneFrames < 1700) {
+		}else if(StateTimer > 45 && StateTimer < 48) {
 			textComponent.text = "2";
-		}else if(currentSceneFrames > 1700 && currentSceneFrames < 1800) {
+		}else if(StateTimer > 48 && StateTimer < 51) {
 			textComponent.text = "1";
-		}else if(currentSceneFrames > 1800 && currentSceneFrames < 2000) {
+		}else if(StateTimer > 51 && StateTimer < 55) {
 			textComponent.text = "";
 		}
 
